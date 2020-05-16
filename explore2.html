@@ -21,6 +21,16 @@
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+
+     <style>
+
+      .pagination {
+         justify-content: center;
+      }
+
+
+    </style>
+
   </head>
 
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -57,11 +67,10 @@
               <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
                   <li><a href="index.html" class="nav-link">Home</a></li>
-                  <li><a href="about.html" class="nav-link">About</a></li>
+                  <li  class="active"><a href="explore.html" class="nav-link">Explore</a></li>
                   <li><a href="services.html" class="nav-link">Services</a></li>
                   <li><a href="gallery.html" class="nav-link">Gallery</a></li>
                   <li><a href="blog.html" class="nav-link">Blog</a></li>
-                  <li  class="active"><a href="explore.html" class="nav-link">Explore</a></li>
                 </ul>
               </nav>
             </div>
@@ -194,10 +203,18 @@
 
           <div class="col-12 mt-5 text-center">
         
-            <a href="explore.html" class="p-3">1</a>
-            <span class="p-3">2</span>
-           <!--  <a href="#" class="p-3">3</a>
-            <a href="#" class="p-3">4</a> -->
+           <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="explore.html">Previous</a>
+                </li>
+                 <li class="page-item"><a class="page-link" href="explore.html">1</a></li>
+                 <li class="page-item active">
+                   <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                 </li>
+                <li class="page-item disabled">
+                  <span class="page-link" href="#">Next</span>
+                </li>
+              </ul>
           </div>
         </div>
       </div>
@@ -214,9 +231,9 @@
             <h3 class="font-weight-bold serif text-white">Chefpad</h3>
           </div>
           <div class="col-12 text-center mb-5">
-            <a href="#" class="">Home</a>
+            <a href="home.html" class="">Home</a>
             <span class="mx-3"></span>
-            <a href="#" class="">About</a>
+            <a href="explore.html" class="">Explore</a>
             <span class="mx-3"></span>
             <a href="#" class="">Services</a>
             <span class="mx-3"></span>
