@@ -52,6 +52,7 @@ self.addEventListener('install', function(event) {
           '/images/newspaper_2.png',
           '/images/explore.png',
           '/images/create.png',
+          '/images/icon_chef_128.png',
           
           'https://fonts.googleapis.com/css?family=Muli:400,700|Playfair+Display:400,900&display=swap'
         ]);
