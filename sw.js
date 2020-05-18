@@ -1,6 +1,6 @@
 
-var CACHE_STATIC_NAME = 'static-v1';
-var CACHE_DYNAMIC_NAME = 'dynamic-v1';
+var CACHE_STATIC_NAME = 'static-v6';
+var CACHE_DYNAMIC_NAME = 'dynamic-v6';
 
 self.addEventListener('install', function(event) {
   console.log('[Service Worker] Installing Service Worker ...', event);
@@ -13,34 +13,9 @@ self.addEventListener('install', function(event) {
           '/',
           '/index.html',
           '/js/app.js',
-          '/js/aos.js',
-          '/js/bootstrap-datepicker.min.js',
           '/js/bootstrap.min.js',
-          '/js/jquery-3.3.1.min.js',
-          '/js/jquery-migrate-3.0.0.min.js',
-          '/js/jquery-ui.js',
-          '/js/jquery.animateNumber.min.js',
-          '/js/jquery.countdown.min.js',
-          '/js/jquery.easing.1.3.js',
-          '/js/jquery.fancybox.min.js',
-          '/js/jquery.magnific-popup.min.js',
-          '/js/jquery.stellar.min.js',
-          '/js/jquery.sticky.js',
-          '/js/jquery.waypoints.min.js',
-          '/js/main.js',
-          '/js/mediaelement-and-player.min.js',
-          '/js/owl.carousel.min.js',
-          '/js/popper.min.js',
-          '/js/slick.min.js',
-          '/js/typed.js',
-          '/css/aos.css',
-          '/css/bootstrap-datepicker.css',
+          '/js/jquery-3.3.1.min.js', 
           '/css/bootstrap.min.css',
-          '/css/bootstrap.min.map',
-          '/css/jquery-ui.css',
-          '/css/jquery.fancybox.min.css',
-          '/css/magnific-popup.css',
-          '/css/mediaelementplayer.css',
           '/css/owl.carousel.min.css',
           '/css/owl.theme.default.min.css',
           '/css/style.css',
@@ -75,6 +50,7 @@ self.addEventListener('activate', function(event) {
   );
   return self.clients.claim();
 });
+
 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
