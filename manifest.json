@@ -1,0 +1,26 @@
+{
+  "name": "Chepad",
+  "short_name": "CPad",
+  "icons": [
+  
+    {
+      "src": "/images/icon_chef_128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/images/icon_chef_256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }
+  ],
+  "start_url": "/index.html",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fff",
+  "theme_color": "#3f51b5",
+  "description": "Cook With Love",
+  "dir": "ltr",
+  "lang": "en-US"
+}
