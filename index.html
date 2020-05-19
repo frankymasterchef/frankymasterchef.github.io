@@ -240,7 +240,7 @@
     <div class="site-section">
 
       <div class="text-center">
-        <h2 class="heading-border-bottom font-weight-bold serif text-black mb-5 text-center">Recipes of The Day</h2>
+        <h2 class="heading-border-bottom font-weight-bold serif text-black mb-5 text-center" id="lol">Recipes of The Day</h2>
       </div>
       
       <div class="nonloop-block-13 owl-carousel d-flex">
@@ -394,6 +394,17 @@
     <script src="js/main.js"></script>
 
     <script src="js/app.js"></script>
+    <script src="js/data.js"></script>
+
+    <script>
+      function myFunction() {
+       
+       
+          document.getElementById("lol").innerHTML += detail_recipe[0]["Name"];
+          console.log(detail_recipe[0]["Name"]);
+        
+      }
+      </script>
 
   </body>
 
