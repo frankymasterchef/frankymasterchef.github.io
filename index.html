@@ -24,6 +24,34 @@
     <link rel="stylesheet" href="css/style.css">
     <meta name="msapplication-TileImage" content="/images/icon_chef_128.png">
     <script src="js/data.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+         $("#marinara").click(function(){
+           //alert("1");
+           choose=1;
+         });
+         $("#crock_pot").click(function(){
+           //alert("2");
+           choose=2;
+         });
+         $("#egg_roll").click(function(){
+           //alert("3");
+           choose=3;
+         });
+         $("#chocolate_mousse").click(function(){
+           //alert("4");
+           choose=4;
+         });
+         $("#swiss_chicken").click(function(){
+          //  alert("5");
+           choose=5;
+         });
+
+  
+       });
+     </script>
     
 
   </head>
@@ -251,11 +279,11 @@
         <h2 class="heading-border-bottom font-weight-bold serif text-black mb-5 text-center" id="lol">Recipes of The Day</h2>
       </div>
 
-      <!-- <script>
+      <script>
         function helloWorld(){
              document.getElementById("lol").innerHTML = choose;
         }
-      </script> -->
+      </script>
       
       <div class="nonloop-block-13 owl-carousel d-flex">
         <div>
@@ -392,8 +420,8 @@
     </footer>
 
     </div>
-
-    <script src="js/jquery-3.3.1.min.js"></script>
+    
+    
     <script src="js/jquery-migrate-3.0.0.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -410,25 +438,7 @@
 
     <script src="js/app.js"></script>
     
-    <script>
-     $(document).ready(function(){
-        $("#marinara").click(function(){
-          alert("1");
-        });
-        $("#crock_pot").click(function(){
-          alert("2");
-        });
-        $("#egg_roll").click(function(){
-          alert("3");
-        });
-        $("#chocolate_mousse").click(function(){
-          alert("4");
-        });
-        $("#swiss_chicken").click(function(){
-          alert("5");
-        });
-      });
-    </script>
+   
 
 
 
