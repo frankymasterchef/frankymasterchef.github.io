@@ -1,6 +1,6 @@
 
-var CACHE_STATIC_NAME = 'static-v6';
-var CACHE_DYNAMIC_NAME = 'dynamic-v6';
+var CACHE_STATIC_NAME = 'static-v7';
+var CACHE_DYNAMIC_NAME = 'dynamic-v7';
 
 self.addEventListener('install', function(event) {
   console.log('[Service Worker] Installing Service Worker ...', event);
@@ -14,7 +14,7 @@ self.addEventListener('install', function(event) {
           '/index.html',
           '/js/app.js',
           '/js/bootstrap.min.js',
-          '/js/jquery-3.3.1.min.js', 
+          '/js/jquery-3.3.1.min.js',
           '/css/bootstrap.min.css',
           '/css/owl.carousel.min.css',
           '/css/owl.theme.default.min.css',
@@ -28,7 +28,7 @@ self.addEventListener('install', function(event) {
           '/images/explore.png',
           '/images/create.png',
           '/images/icon_chef_128.png',
-          
+
           'https://fonts.googleapis.com/css?family=Muli:400,700|Playfair+Display:400,900&display=swap'
         ]);
       })
