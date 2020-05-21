@@ -22,6 +22,7 @@
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/data.js"></script>
 
 
      <style>
@@ -111,98 +112,19 @@
         <br>
 
 
-        <div class="row">
+        <div class="row" id="list_recipe">
           
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="detail_recipe.html">
-                <img src="images/crockpot_chicken.jpg" alt="Image"
-                 class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-                
-                <h2><a href="detail_recipe.html">Crock Pot Chicken</a></h2>
-                <span class="meta d-inline-block mb-3">October 10, 2019 <span class="mx-2">by</span> <a href="#">Sam</a></span>
-                <p>This recipe is broken down into two parts: cooking chicken and cooking biscuits, Once the chicken is cooked, it's time to add the vegetables and biscuits.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="detail_recipe.html">
-                <img src="images/salisbury_steak.jpg" alt="Image"
-                 class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-                
-                <h2><a href="detail_recipe.html">Salisbury Steak</a></h2>
-                <span class="meta d-inline-block mb-3">September 20, 2019 <span class="mx-2">by</span> <a href="#">Alice</a></span>
-                <p>Salisbury steak may be a vintage recipe, but we're fully on board for the comeback. This  meal is best served with a side of cream cheese mashed potatoes.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="detail_recipe.html">
-                <img src="images/swedish_meatballs.jpg" alt="Image"
-                 class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-                
-                <h2><a href="detail_recipe.html">Swedish Meatballs</a></h2>
-                <span class="meta d-inline-block mb-3">September 1, 2019 <span class="mx-2">by</span> <a href="#">Lou</a></span>
-                <p>A meatball is ground meat rolled into a small ball, you can mix other ingredients, such as bread crumbs, minced onion, eggs, butter, and seasoning.</p>
-              </div>
-            </div>
-          </div>
-
-        <!--   <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="single.html">
-                <img src="images/mousse.jpg" alt="Image"
-                 class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-                
-                <h2><a href="single.html">Chocolate Mousse</a></h2>
-                <span class="meta d-inline-block mb-3">December 12, 2019 <span class="mx-2">by</span> <a href="#">Kevin</a></span>
-                <p>Creamy chocolate mousse is an absolute classic, and this indulgent gluten-free dessert recipe is so easy to follow.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="single.html">
-                <img src="images/swiss_chicken.jpg" alt="Image"
-                 class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-                
-                <h2><a href="single.html">Swiss chicken</a></h2>
-                <span class="meta d-inline-block mb-3">November 29, 2019 <span class="mx-2">by</span> <a href="#">Maria</a></span>
-                <p>This super easy chicken dinner is topped with deli ham and slices of Swiss cheese and taste so creamy.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="single.html">
-                <img src="images/pizza.png" alt="Image"
-                 class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-                
-                <h2><a href="single.html">Homemade Pizza</a></h2>
-                <span class="meta d-inline-block mb-3">October 30, 2019 <span class="mx-2">by</span> <a href="#">Antonio</a></span>
-                <p>Nothing beats a fresh-out-of-the-oven pizza, and once you see how easy it is to make for yourself.</p>
-              </div>
-            </div>
-          </div> -->
+          <script>
+            var result_recipe="";
+            var z = 7;
+            for(z in detail_recipe){
+               result_recipe += "<div class='col-lg-4 col-md-6 mb-4'><div class='post-entry-1 h-100'><a href='detail_recipe.html?id="+ detail_recipe[z].id +"'><img src="+ detail_recipe[z].Image_Recipe +" alt='Image' class='img-fluid'></a><div class='post-entry-1-contents'><h2><a href='detail_recipe.html?id="+ detail_recipe[z].id +"'>"+ detail_recipe[z].Name +"</a></h2><span class='meta d-inline-block mb-3'>"+ detail_recipe[z].Date +"<span class='mx-2'>by</span><a href='detail_recipe.html?id="+ detail_recipe[z].id +"'>"+ detail_recipe[z].Create_by +"</a></span><p>"+ detail_recipe[z].short_desc +"</p></div></div></div>"
+            }
+            document.getElementById("list_recipe").innerHTML = result_recipe;
+          </script>
         
 
-          <div class="col-12 mt-5 text-center">
+          <div class="col-12 mt-5">
         
            <ul class="pagination">
                 <li class="page-item">
