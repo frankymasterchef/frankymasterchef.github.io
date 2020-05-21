@@ -22,6 +22,7 @@
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/data.js"></script>
 
 
     <style>
@@ -113,94 +114,15 @@
             </div>
         </div>
         <br>
-        <div class="row">
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="detail_recipe.html">
-                <img src="images/marinara.jpg" alt="Image"
-                 class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-                
-                <h2><a href="detail_recipe.html">Marinara</a></h2>
-                <span class="meta d-inline-block mb-3">March 17, 2020 <span class="mx-2">by</span> <a href="#">Rose</a></span>
-                <p>Pasta using marinara sauce where the sauce ingredients are from tomatoes, garlic, herbs, and onions.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="detail_recipe.html">
-                <img src="images/crock-pot-spaghetti.jpg" alt="Image"
-                 class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-                
-                <h2><a href="detail_recipe.html">Crock pot spaghetti</a></h2>
-                <span class="meta d-inline-block mb-3">January 10, 2020 <span class="mx-2">by</span> <a href="#">Jennie</a></span>
-                <p>Crock Pot Spaghetti is meatballs and spaghetti. Cooking is quite simple by putting everything into a slow cooker.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="detail_recipe.html">
-                <img src="images/egg-roll-bowls.jpg" alt="Image"
-                 class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-                
-                <h2><a href="detail_recipe.html">Egg roll bowls</a></h2>
-                <span class="meta d-inline-block mb-3">December 15, 2019 <span class="mx-2">by</span> <a href="#">Lisa</a></span>
-                <p>Cook egg roll bowls It's basically like stir-fried pork and cabbage. The crisis is amazing and it feels right.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="detail_recipe.html">
-                <img src="images/mousse.jpg" alt="Image"
-                 class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-                
-                <h2><a href="detail_recipe.html">Chocolate Mousse</a></h2>
-                <span class="meta d-inline-block mb-3">December 12, 2019 <span class="mx-2">by</span> <a href="#">Kevin</a></span>
-                <p>Creamy chocolate mousse is an absolute classic, and this indulgent gluten-free dessert recipe is so easy to follow.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="detail_recipe.html">
-                <img src="images/swiss_chicken.jpg" alt="Image"
-                 class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-                
-                <h2><a href="detail_recipe.html">Swiss chicken</a></h2>
-                <span class="meta d-inline-block mb-3">November 29, 2019 <span class="mx-2">by</span> <a href="#">Maria</a></span>
-                <p>This super easy chicken dinner is topped with deli ham and slices of Swiss cheese and taste so creamy.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="post-entry-1 h-100">
-              <a href="detail_recipe.html">
-                <img src="images/pizza.png" alt="Image"
-                 class="img-fluid">
-              </a>
-              <div class="post-entry-1-contents">
-                
-                <h2><a href="detail_recipe.html">Homemade Pizza</a></h2>
-                <span class="meta d-inline-block mb-3">October 30, 2019 <span class="mx-2">by</span> <a href="#">Antonio</a></span>
-                <p>Nothing beats a fresh-out-of-the-oven pizza, and once you see how easy it is to make for yourself.</p>
-              </div>
-            </div>
-          </div>
+        <div class="row" id="list_recipe">
+          <script>
+            var result_recipe="";
+            for(var z in detail_recipe){
+               result_recipe += "<div class='col-lg-4 col-md-6 mb-4'><div class='post-entry-1 h-100'><a href='detail_recipe.html?id="+ detail_recipe[z].id +"'><img src="+ detail_recipe[z].Image_Recipe +" alt='Image' class='img-fluid'></a><div class='post-entry-1-contents'><h2><a href='detail_recipe.html?id="+ detail_recipe[z].id +"'>"+ detail_recipe[z].Name +"</a></h2><span class='meta d-inline-block mb-3'>"+ detail_recipe[z].Date +"<span class='mx-2'>by</span><a href='detail_recipe.html?id="+ detail_recipe[z].id +"'>"+ detail_recipe[z].Create_by +"</a></span><p>"+ detail_recipe[z].short_desc +"</p></div></div></div>"
+            }
+            document.getElementById("list_recipe").innerHTML = result_recipe;
+          </script>
+          
       
           <div class="col-lg-12 mt-5">
              <ul class="pagination">

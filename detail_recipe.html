@@ -1,3 +1,35 @@
+
+<script src="js/data.js"></script>
+<script>
+  var temp_name="";
+  var temp_name_auth="";
+  var temp_ingred="";
+  var temp_step="";
+  var temp_tips="";
+  var temp_image_auth="";
+  var temp_image_rec="";
+  var temp_date="";
+  var temp_bio_author="";
+  
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const ID = urlParams.get('id')
+  console.log(ID);
+  for(var z in detail_recipe){
+    if(detail_recipe[z].id==ID){
+      temp_name=detail_recipe[z].Name;
+      temp_name_auth=detail_recipe[z].Create_by;
+      temp_ingred=detail_recipe[z].Ingredients;
+      temp_step=detail_recipe[z].Step;
+      temp_tips=detail_recipe[z].Tips;
+      temp_image_auth=detail_recipe[z].Image_Author;
+      temp_image_rec=detail_recipe[z].Image_Recipe;
+      temp_date=detail_recipe[z].Date;
+      temp_bio_author=detail_recipe[z].About_Author;
+    }
+  }
+</script>
+
 <!doctype html>
 <html lang="en">
 
@@ -19,6 +51,7 @@
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="css/aos.css">
     <link rel="manifest" href="/manifest.json">
+    
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -76,9 +109,12 @@
       <div class="site-section-cover bg-image overlay"  style="background-image: url('images/explore_cover.jpg')">
         <div class="container">
           <div class="row align-items-center">
-            <div class="col-md-7">
-              <span class="d-block mb-3 text-white" data-aos="fade-up">March 17, 2020 <span class="mx-2 text-primary">&bullet;</span> by Rose</span>
-                <h1 class="mb-4" data-aos="fade-up" data-aos-delay="100">Marinara</h1>
+            <div class="col-md-7" id="cover_detail">
+              <script>
+                var result = "";
+                result = "<span class='d-block mb-3 text-white' data-aos='fade-up'>"+ window.temp_date +"<span class='mx-2 text-primary'>&bullet;</span>by "+ window.temp_name_auth +"</span><h1 class='mb-4' data-aos='fade-up' data-aos-delay='100'>"+ window.temp_name +"</h1>"
+                document.getElementById("cover_detail").innerHTML = result;
+              </script>
             </div>
           </div>
         </div>
@@ -97,10 +133,13 @@
            <div class="col-md-12 mb-4">
               <div class="row">
                <div class="col-md-8 mb-4 mt-md-5">
-                  <div class="d-flex align-items-center">
-                    <a href="images/marinara.jpg" data-fancybox="gal">
-                     <img src="images/marinara.jpg" alt="Image" class="img-fluid">
-                    </a>
+                  <div class="d-flex align-items-center" id="image_recipe_detail">
+
+                    <script>
+                      var result_ = "";
+                      result_ = "<a href="+ window.temp_image_rec +" data-fancybox='gal'><img src="+ window.temp_image_rec +" alt='Image' class='img-fluid'></a>"
+                      document.getElementById("image_recipe_detail").innerHTML = result_;
+                    </script>
                   </div>
                 </div>
                 <div class="col-md-4 mt-md-5 sidebar">
@@ -118,82 +157,48 @@
           <div class="col-md-8 blog-content">
             <div class="tab-content" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-Ingredients" role="tabpanel" aria-labelledby="v-pills-Ingredients-tab">
-                  <span class="mx-2 text-primary">&bullet;</span>1/4 c. extra-virgin olive oil
-                  <br>
-                  <span class="mx-2 text-primary">&bullet;</span>1/2 medium onion, minced
-                  <br>
-                  <span class="mx-2 text-primary">&bullet;</span>4 cloves garlic, thinly sliced
-                  <br>
-                  <span class="mx-2 text-primary">&bullet;</span>1 (28-oz.) can whole tomatoes
-                  <br>
-                  <span class="mx-2 text-primary">&bullet;</span>1 tsp. dried oregano
-                  <br>
-                  <span class="mx-2 text-primary">&bullet;</span>Pinch red pepper flakes
-                  <br>
-                  <span class="mx-2 text-primary">&bullet;</span>Kosher salt 
-                  <br>
-                  <span class="mx-2 text-primary">&bullet;</span>Freshly ground black pepper
-                  <br>
-                  <span class="mx-2 text-primary">&bullet;</span>2 large sprigs fresh basil
-                  <br>
+                  <script>
+                    var result_1 = "";
+                    var delimiter = window.temp_ingred.split("-");
+                    for(var x in delimiter){
+                      result_1 += "<span class='mx-2 text-primary'>&bullet;</span>"+ delimiter[x] +"<br>"
+                    }
+                    document.getElementById("v-pills-Ingredients").innerHTML = result_1;
+                  </script>
 
                 </div>
                 <div class="tab-pane fade" id="v-pills-Step" role="tabpanel" aria-labelledby="v-pills-Step-tab">
-                  <div class="text-justify">
-                    <span class="mx-2 text-primary">1</span>In a large, deep skillet over medium heat, heat oil. Add onion and cook until soft, 5 minutes. Stir in garlic and cook until fragrant, 1 minute more. 
-                    <br><br>
-                    <span class="mx-2 text-primary">2</span> Pour in tomatoes and use a wooden spoon to break tomatoes into chunks. Fill tomato can almost halfway with water and swirl to catch any remaining sauce, then add to skillet. Season with oregano, red pepper flakes, salt, and pepper and stir in basil. Bring mixture to simmer. 
-                    <br><br>
-                    <span class="mx-2 text-primary">3</span>Reduce heat to low and simmer until liquid has reduced slightly, about 20 minutes. Discard basil before serving.
-                    <br><br>
-                  </div>
+
+                  <script>
+                    var result_2 = "";
+                    var delimiter = window.temp_step.split("-");
+                    for(var x in delimiter){
+                      result_2 += "<span class='mx-2 text-primary'></span>"+ delimiter[x] +"<br><br>"
+                    }
+                    document.getElementById("v-pills-Step").innerHTML = result_2;
+                  </script>
                 </div>
                 <div class="tab-pane fade" id="v-pills-Tips" role="tabpanel" aria-labelledby="v-pills-Tips-tab">
-                   <span class="mx-2 text-primary">&bullet;</span>Use whole tomatoes. 
-                   <br>
-
-                  We like using (canned) whole tomatoes, and breaking them as they cook, for a chunkier marinara. If you prefer a smoother sauce, use a can of crushed tomatoes instead. This tastes amazing over a bowl of pasta, but it's also great for shakshuka, lasagna, and chicken parm.
-                  <br><br>
-
-                   <span class="mx-2 text-primary">&bullet;</span>Use San Marzano tomatoes.
-                   <br> 
-
-                  Trust, us. It actually makes a difference. We taste tested a bunch of popular super market brands and found out that San Marzano were sweeter and had a cleaner tomato taste. Luckily for you, they're easy to find at most grocery stores these days.
-                   <br><br>
-
-                   <span class="mx-2 text-primary">&bullet;</span>Simmering the sauce for forever is unnecessary.
-                   <br>  
-
-                  It doesn't need to simmer for hours and hours because it shouldn't taste super rich and complex. People love marinara sauce for it's bright flavor.
-                  <br><br>
-
-                   <span class="mx-2 text-primary">&bullet;</span>Add some water.
-                   <br>
-
-                  If you just used the tomatoes from the can, your sauce will bubble and splash aggressively. Fill up your tomato can with a bit of water, swirl it around (to catch any clinging leftover tomato bits and juices), then add it to your skillet. This will loosen the tomato mixture to be more sauce-like. 
-                  <br><br>
-
-                   <span class="mx-2 text-primary">&bullet;</span>You don't need sugar.
-                   <br>
-
-                  Some pasta sauces tell you to add a bit of sugar to cut the acidity of the tomatoes. But when you build the flavors (with EVOO, onion, garlic, basil, and red pepper flakes) and give it time to simmer (20 minutes) we don't think it's necessary. 
-
-                  Flavor it with basil.
-
-                  Basil is a fragrant herb that is made for marinara. Instead of waiting to garnish your pasta with it, use it while the sauce is simmering. It'll infuse a ton of fresh flavor. 
-                  <br><br>
-
+                  <script>
+                    var result_3 = "";
+                    var delimiter = window.temp_tips.split("-");
+                    for(var x in delimiter){
+                      result_3 += "<span class='mx-2 text-primary'>&bullet;</span>"+ delimiter[x] +"<br>"
+                    }
+                    document.getElementById("v-pills-Tips").innerHTML = result_3;
+                  </script>
                 </div>
            </div>
           </div>
           <div class="col-md-4 sidebar">
             
             
-            <div class="sidebar-box">
-              <img src="images/rose.png" alt="Free Website Template by Free-Template.co" class="img-fluid mb-4 w-50 rounded-circle">
-              <h3 class="text-black">About The Author</h3>
-              <p>Roseanne Park (born 11 February 1997), better known by her stage name Rosé (Korean: 로제), is a New Zealand singer currently based in South Korea.</p>
-              <!-- <p><a href="#" class="btn btn-primary btn-md text-white">Read More</a></p> -->
+            <div class="sidebar-box" id="bio_author">
+              <script>
+                var result_4 = "";
+                result_4 = "<img src="+ window.temp_image_auth +"  class='img-fluid mb-4 w-50 rounded-circle'><h3 class='text-black'>About The Author</h3><p>"+ window.temp_bio_author +"</p>"
+                document.getElementById("bio_author").innerHTML = result_4;
+              </script>
             </div>
 
             
