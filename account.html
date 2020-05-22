@@ -185,7 +185,14 @@
         console.log(err.message);
       })
       if (res) {
-        window.location.href = "/create_recipe.html";
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            alert("Login berhasil");
+            window.location.href = "create_recipe.html";
+          } else {
+            alert("Login gagal");
+          }
+        })
       }
     }
   </script>

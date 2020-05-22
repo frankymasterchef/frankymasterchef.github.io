@@ -1,4 +1,4 @@
-function config_file(){
+function config_file() {
   var firebaseConfig = {
     apiKey: "AIzaSyA-RjuwpG9YqLpLF4jHCbFBu90aShrHW6o",
     authDomain: "webchefpad.firebaseapp.com",
@@ -11,4 +11,13 @@ function config_file(){
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.auth.Auth.Persistence.LOCAL;
+}
+
+function logout() {
+  firebase.auth().signOut().then(function() {
+    // Sign-out successfull.
+    document.getElementById("logout").innerHTML = "";
+  }).catch(function(error) {
+    alert("failed logout");
+  })
 }
