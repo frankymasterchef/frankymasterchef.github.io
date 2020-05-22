@@ -1,12 +1,12 @@
 function config_file() {
   var firebaseConfig = {
-    apiKey: "AIzaSyA-RjuwpG9YqLpLF4jHCbFBu90aShrHW6o",
-    authDomain: "webchefpad.firebaseapp.com",
-    databaseURL: "https://webchefpad.firebaseio.com",
-    projectId: "webchefpad",
-    storageBucket: "webchefpad.appspot.com",
-    messagingSenderId: "343550062893",
-    appId: "1:343550062893:web:a49c72e9501c6d30fc23a4"
+    apiKey: "AIzaSyAqpcoHIGs83TRnEcaqj951G553KjgegMk",
+    authDomain: "webchefpad-1e9bd.firebaseapp.com",
+    databaseURL: "https://webchefpad-1e9bd.firebaseio.com",
+    projectId: "webchefpad-1e9bd",
+    storageBucket: "webchefpad-1e9bd.appspot.com",
+    messagingSenderId: "619894914509",
+    appId: "1:619894914509:web:cd2ac538a0558d20431884"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
@@ -17,7 +17,19 @@ function logout() {
   firebase.auth().signOut().then(function() {
     // Sign-out successfull.
     document.getElementById("logout").innerHTML = "";
+    window.location.href = "/account.html";
   }).catch(function(error) {
     alert("failed logout");
+  })
+}
+
+function check_signin() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      alert("masuk kok");
+      document.getElementById("logout").innerHTML = '<a href="" onclick="logout()" class="nav-link">Logout</a>'
+    } else {
+      alert("nggk masuk");
+    }
   })
 }

@@ -22,7 +22,9 @@
   <script src="js/data.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
   <script src="js/database.js"></script>
-  <script>config_file();</script>
+  <script>
+    config_file();
+  </script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -51,7 +53,7 @@
                 <li><a href="explore.html" class="nav-link">Explore</a></li>
                 <li><a href="myrecipe.html" class="nav-link">Create</a></li>
                 <li><a href="account.html" class="nav-link">Account</a></li>
-                <li id="logout"><a onclick="logout()" class="nav-link">Logout</a></li>
+                <li id="logout"></li>
               </ul>
             </nav>
           </div>
@@ -220,6 +222,9 @@
   <script src="js/aos.js"></script>
   <script src="js/main.js"></script>
   <script src="js/app.js"></script>
+  <script>
+    check_signin();
+  </script>
 </body>
 
 </html>

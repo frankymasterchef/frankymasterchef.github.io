@@ -99,7 +99,8 @@
                 <li><a href="explore.html" class="nav-link">Explore</a></li>
                 <li class="active"><a href="myrecipe.html" class="nav-link">Create</a></li>
                 <li><a href="account.html" class="nav-link">Account</a></li>
-                <li onclick="logout()" class="nav-link" >Logout</li>
+                <li id="logout"></li>
+
               </ul>
             </nav>
           </div>
@@ -260,10 +261,9 @@
   <script>
     // Your web app's Firebase configuration
     config_file();
-    console.log(firebase.auth().currentUser);
+    check_signin();
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-        alert("Welcome back");
       } else {
         alert("Anda belum login, login terlebih dahulu");
         window.location.href = "/account.html";

@@ -175,7 +175,12 @@
   <script>
     // Your web app's Firebase configuration
     config_file();
-
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        alert("Anda telah login");
+        window.location.href = "/index.html";
+      }
+    })
     function basic_authentication() {
       var username = document.getElementById("usr").value;
       var password = document.getElementById("pass").value;
@@ -185,14 +190,8 @@
         console.log(err.message);
       })
       if (res) {
-        firebase.auth().onAuthStateChanged(function(user) {
-          if (user) {
-            alert("Login berhasil");
-            window.location.href = "create_recipe.html";
-          } else {
-            alert("Login gagal");
-          }
-        })
+        alert("Login berhasil");
+        window.location.href = "create_recipe.html";
       }
     }
   </script>
