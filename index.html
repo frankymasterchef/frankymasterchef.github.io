@@ -23,14 +23,13 @@
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
   <script src="js/database.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
-  <script> 
+  <script src="js/app.js"></script>
+  <script>
     $(function(){
-      $("#menu_web").load("header.html"); 
-      $("#menu_mobile").load("menu_mobile.html"); 
-    });
-  </script> 
-  
-  
+    $("#menu_mobile").load("menu_mobile.html");
+
+    })
+  </script>
   <script>
     config_file();
   </script>
@@ -38,14 +37,8 @@
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
   <div class="site-wrap" id="home-section">
-    <div class="site-mobile-menu site-navbar-target" id="menu_mobile">
-      
+    <div id="menu_mobile">
     </div>
-    <header class="site-navbar site-navbar-target" role="banner">
-      <div class="container" id="menu_web">
-       
-      </div>
-    </header>
     <div class="ftco-blocks-cover-1">
       <div class="site-section-cover bg-image overlay" style="background-image: url('images/Ingredients.jpg')">
         <div class="container">
@@ -193,7 +186,7 @@
   </div>
   </footer>
   </div>
-  
+
   <script src="js/jquery-migrate-3.0.0.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -207,7 +200,7 @@
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/app.js"></script>
+
   <script>
     check_signin();
   </script>
