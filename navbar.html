@@ -1,0 +1,70 @@
+
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+  <header class="site-navbar site-navbar-target" role="banner">
+    <div class="container">
+      <div class="row align-items-center position-relative">
+        <div class="col-3 ">
+          <div class="site-logo serif">
+            <h2 class="text-white" style="font-weight: bold;">Chepad</h2>
+          </div>
+        </div>
+        <div class="col-9  text-right">
+          <span class="d-inline-block d-lg-none"><a href="#" class="text-white site-menu-toggle js-menu-toggle py-5 text-white"><span class="icon-menu h3 text-white"></span></a></span>
+          <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+            <ul class="site-menu main-menu js-clone-nav ml-auto " id="navItems">
+              <li class="index"><a href="index.html" class="nav-link">Home</a></li>
+              <li class="explore"><a href="explore.html" class="nav-link">Explore</a></li>
+              <li class="myrecipe"><a href="myrecipe.html" class="nav-link">Create</a></li>
+              <li class="account"><a href="account.html" class="nav-link">Account</a></li>
+              <li id="logout"></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<script>
+  $(document).ready(function(){
+
+    var url = window.location;
+    var path = window.location.pathname;
+    
+    if(path=="/frankymasterchef.github.io/detail_recipe.html"){
+      alert("masuk");
+      $('.explore').addClass('active');
+    }
+
+    else if(path=="/frankymasterchef.github.io/signup.html"){
+      $('.account').addClass('active');
+    }
+
+    // else{
+    //   $('.explore').removeClass('active');
+    //   $('.account').removeClass('active');
+    // }
+
+    // Will also work for relative and absolute hrefs
+        $('ul.js-clone-nav a').filter(function () {
+            return this.href == url;
+        }).parent().addClass('active').parent().parent().addClass('active');
+
+        $('.js-clone-nav').each(function() {
+          var $this = $(this);
+          $this.clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-menu-body');
+    });
+
+  });
+</script>
+
+
+
+
+  
