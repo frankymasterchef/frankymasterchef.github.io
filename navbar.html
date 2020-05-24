@@ -38,7 +38,6 @@
     var path = window.location.pathname;
     
     if(path=="/frankymasterchef.github.io/detail_recipe.html"){
-      alert("masuk");
       $('.explore').addClass('active');
     }
 
@@ -46,10 +45,10 @@
       $('.account').addClass('active');
     }
 
-    // else{
-    //   $('.explore').removeClass('active');
-    //   $('.account').removeClass('active');
-    // }
+    else{
+      $('.explore').removeClass('active');
+      $('.account').removeClass('active');
+    }
 
     // Will also work for relative and absolute hrefs
         $('ul.js-clone-nav a').filter(function () {
