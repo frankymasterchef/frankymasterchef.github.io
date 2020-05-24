@@ -36,20 +36,20 @@
 
     var url = window.location;
     var path = window.location.pathname;
-    if(path=="/frankymasterchef.github.io/detail_recipe.html"){
-      // $('.explore').addClass('active');
+    if(path=="frankymasterchef.github.io/detail_recipe.html"){
+      $('.explore').addClass('active');
       alert("1");
     }
 
-    else if(path=="/frankymasterchef.github.io/signup.html"){
-      // $('.account').addClass('active');
+    else if(path=="frankymasterchef.github.io/signup.html"){
+      $('.account').addClass('active');
       alert("2");
     }
 
-    // else{
-    //   $('.explore').removeClass('active');
-    //   $('.account').removeClass('active');
-    // }
+    else{
+      $('.explore').removeClass('active');
+      $('.account').removeClass('active');
+    }
 
     // Will also work for relative and absolute hrefs
         $('ul.js-clone-nav a').filter(function () {
