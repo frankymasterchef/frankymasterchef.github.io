@@ -140,34 +140,34 @@
 
                 <div class="form-group row">
                   <div class="col-md-5 mb-4 mb-lg-0">
-                    <input type="text" class="form-control" placeholder="First name">
+                    <input type="text" id="first_name" class="form-control" placeholder="First name">
                   </div>
                   <div class="col-md-5 mb-4">
-                    <input type="text" class="form-control" placeholder="Last name">
+                    <input type="text" id="last_name" class="form-control" placeholder="Last name">
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <div class="col-md-10 mb-4">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="email" id="email" class="form-control" placeholder="Email">
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <div class="col-md-10 mb-4">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" id="password" class="form-control" placeholder="Password">
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <div class="col-md-10 mb-4">
-                    <textarea name="" id="" class="form-control" placeholder="Address" cols="30" rows="10"></textarea>
+                    <textarea name="" id="address" class="form-control" placeholder="Address" cols="30" rows="10"></textarea>
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <div class="col-md-10 mr-auto mb-4">
-                    <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Submit">
+                    <input onclick="signup_authentication()"   class="btn btn-block btn-primary text-white py-3 px-5" value="Submit">
                   </div>
                 </div>
 
@@ -267,13 +267,13 @@
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.14.4/init.js"></script>
   <script src="js/database.js"></script>
   <!-- TODO: Add SDKs for Firebase products that you want to use
            https://firebase.google.com/docs/web/setup#available-libraries -->
   <script>
     // Your web app's Firebase configuration
     config_file();
+
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         alert("Anda telah login");
@@ -288,6 +288,19 @@
       });
     });
 
+    function signup_authentication() {
+      var username = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var res = firebase.auth().createUserWithEmailAndPassword(username, password);
+      res.catch(function(err) {
+        console.log(err.code);
+        console.log(err.message);
+      })
+      if (res) {
+        alert("Signup berhasil");
+        window.location.href = "create_recipe.html";
+      }
+    }
     function readURL(input) {
       if (input.files && input.files[0]) {
         var reader = new FileReader();

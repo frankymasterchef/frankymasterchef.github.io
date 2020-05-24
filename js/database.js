@@ -26,10 +26,8 @@ function logout() {
 function check_signin() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      alert("masuk kok");
       document.getElementById("logout").innerHTML = '<a href="" onclick="logout()" class="nav-link">Logout</a>'
     } else {
-      alert("nggk masuk");
     }
   })
 }
