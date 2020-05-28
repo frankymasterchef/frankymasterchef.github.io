@@ -1,3 +1,4 @@
+
 function config_file() {
   var firebaseConfig = {
     apiKey: "AIzaSyAqpcoHIGs83TRnEcaqj951G553KjgegMk",
@@ -11,6 +12,7 @@ function config_file() {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.auth.Auth.Persistence.LOCAL;
+  
 }
 
 function logout() {
@@ -27,7 +29,9 @@ function check_signin() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       document.getElementById("logout").innerHTML = '<a href="" onclick="logout()" class="nav-link">Logout</a>'
+      console.log(user);
     } else {
     }
   })
 }
+
