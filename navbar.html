@@ -45,7 +45,7 @@
     }
 
     else if(path=="/create_recipe.html"){
-      $('.explore').addClass('active');
+      $('.myrecipe').addClass('active');
     }
 
     else{
@@ -62,6 +62,8 @@
           var $this = $(this);
           $this.clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-menu-body');
     });
+
+    check_signin();
 
   });
 </script>

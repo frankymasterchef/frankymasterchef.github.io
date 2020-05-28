@@ -22,12 +22,20 @@
 
   <!-- MAIN CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+  <script src="js/database.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script>
     $(function(){
     $("#navbar").load("navbar.html");
 
     })
+  </script>
+
+  <script>
+    config_file();
+    const db = firebase.firestore();
   </script>
 
   <style>
@@ -111,27 +119,39 @@
             </div>
 
             <div class="col-lg-8 mb-5 mt-md-5">
-              <form action="#" method="post">
+              <form class="add-recipe">
+
+                <div class="form-group row">
+                  <div class="col-md-10">
+                    <input type="text" class="form-control" placeholder="Title" id="title" required>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-md-10">
+                    <input type="text" class="form-control" placeholder="Short Description" id="short_desc" required>
+                  </div>
+                </div>
 
                 <div class="tab-content" id="v-pills-tabContent">
                   <div class="tab-pane fade show active" id="v-pills-Ingredients" role="tabpanel" aria-labelledby="v-pills-Ingredients-tab">
                     <div class="form-group row">
                       <div class="col-md-10 mb-4">
-                        <textarea name="" id="" class="form-control" placeholder="Write Ingredients" cols="30" rows="10"></textarea>
+                        <textarea name="" id="Ingredients" class="form-control" placeholder="Write Ingredients" cols="30" rows="10" required></textarea>
                       </div>
                     </div>
                   </div>
                   <div class="tab-pane fade" id="v-pills-Step" role="tabpanel" aria-labelledby="v-pills-Step-tab">
                     <div class="form-group row">
                       <div class="col-md-10 mb-4">
-                        <textarea name="" id="" class="form-control" placeholder="Write Steps" cols="30" rows="10"></textarea>
+                        <textarea name="" id="Steps" class="form-control" placeholder="Write Steps" cols="30" rows="10" required></textarea>
                       </div>
                     </div>
                   </div>
                   <div class="tab-pane fade" id="v-pills-Tips" role="tabpanel" aria-labelledby="v-pills-Tips-tab">
                     <div class="form-group row">
                       <div class="col-md-10 mb-4">
-                        <textarea name="" id="" class="form-control" placeholder="Write Tips" cols="30" rows="10"></textarea>
+                        <textarea name="" id="Tips" class="form-control" placeholder="Write Tips" cols="30" rows="10" required></textarea>
                       </div>
                     </div>
                   </div>
@@ -141,18 +161,18 @@
                 <div class="form-group row">
                   <div class="col-md-10 mb-4">
                     <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm mb-4">
-                      <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
+                      <input id="upload" type="file" onchange="chooseFile(event)" class="form-control border-0" required>
                       <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
                       <div class="input-group-append">
                         <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
                       </div>
                     </div>
 
-                    <div class="image-area mt-4 mb-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+                    <div class="image-area mt-4 mb-4" id="pic_area"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
 
                     <div class="form-group row">
                       <div class="col-md-8 mr-auto ml-auto mb-4">
-                        <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Submit">
+                        <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5 upload-group" value="Submit">
                       </div>
                     </div>
                   </div>
@@ -219,13 +239,12 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
-  <script src="js/database.js"></script>
+
+  
   <!-- TODO: Add SDKs for Firebase products that you want to use
              https://firebase.google.com/docs/web/setup#available-libraries -->
   <script>
     // Your web app's Firebase configuration
-    config_file();
     check_signin();
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
@@ -270,6 +289,7 @@
 
   </script>
 
+<script src="js/db.js"></script>
 </body>
 
 </html>
