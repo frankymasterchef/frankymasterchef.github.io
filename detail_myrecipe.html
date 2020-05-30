@@ -50,21 +50,19 @@
 
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
+
     <div class="site-wrap" id="home-section">
 
       <div id="navbar">
       </div>
-
-    <div class="ftco-blocks-cover-1">
+  
+    <div class = "detail">
+    <!-- <div class="ftco-blocks-cover-1">
       <div class="site-section-cover bg-image overlay"  style="background-image: url('images/explore_cover.jpg')">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-md-7" id="cover_detail">
-              <!-- <script>
-                var result = "";
-                result = "<span class='d-block mb-3 text-white' data-aos='fade-up'><"+ window.temp_date +"><span class='mx-2 text-primary'>&bullet;</span>by "+ window.temp_name_auth +"</span><h1 class='mb-4' data-aos='fade-up' data-aos-delay='100'>"+ window.temp_name +"</h1>"
-                document.getElementById("cover_detail").innerHTML = result;
-              </script> -->
+            
             </div>
           </div>
         </div>
@@ -85,11 +83,7 @@
                <div class="col-md-8 mb-4 mt-md-5">
                   <div class="d-flex align-items-center" id="image_recipe_detail">
 
-                    <!-- <script>
-                      var result_ = "";
-                      result_ = "<a href="+ window.temp_image_rec +" data-fancybox='gal'><img src="+ window.temp_image_rec +" alt='Image' class='img-fluid'></a>"
-                      document.getElementById("image_recipe_detail").innerHTML = result_;
-                    </script> -->
+                  
                   </div>
                 </div>
                 <div class="col-md-4 mt-md-5 sidebar">
@@ -108,34 +102,19 @@
             <div class="tab-content" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-Ingredients" role="tabpanel" aria-labelledby="v-pills-Ingredients-tab">
                   <script>
-                    // var result_1 = "";
-                    // var delimiter = window.temp_ingred.split("-");
-                    // for(var x in delimiter){
-                    //   result_1 += "<span class='mx-2 text-primary'>&bullet;</span>"+ delimiter[x] +"<br>"
-                    // }
-                    document.getElementById("v-pills-Ingredients").innerHTML = window.temp_ingred;
+                  
                   </script>
 
                 </div>
                 <div class="tab-pane fade" id="v-pills-Step" role="tabpanel" aria-labelledby="v-pills-Step-tab">
 
                   <script>
-                    // var result_2 = "";
-                    // var delimiter = window.temp_step.split("-");
-                    // for(var x in delimiter){
-                    //   result_2 += "<span class='mx-2 text-primary'></span>"+ delimiter[x] +"<br><br>"
-                    // }
-                    document.getElementById("v-pills-Step").innerHTML = window.temp_step;
+                  
                   </script>
                 </div>
                 <div class="tab-pane fade" id="v-pills-Tips" role="tabpanel" aria-labelledby="v-pills-Tips-tab">
                   <script>
-                    // var result_3 = "";
-                    // var delimiter = window.temp_tips.split("-");
-                    // for(var x in delimiter){
-                    //   result_3 += "<span class='mx-2 text-primary'>&bullet;</span>"+ delimiter[x] +"<br>"
-                    // }
-                    document.getElementById("v-pills-Tips").innerHTML = window.temp_tips;
+                  
                   </script>
                 </div>
            </div>
@@ -143,8 +122,9 @@
         
         </div>
       </div>
-    </div>
+    </div> -->
 
+    </div>
     
 
     
@@ -197,9 +177,12 @@
 
     <script src="js/main.js"></script>
 
+    <script src="js/db.js"></script>
+    <script src="js/ui.js"></script>
 
-    <script>
-      $(document).ready(function(){
+
+    <!-- <script>
+    
         firebase.auth().onAuthStateChanged(function(user) {
                 if (user) {
                         var temp_name="";
@@ -215,8 +198,8 @@
                         db.collection('recipes').doc(firebase.auth().currentUser.uid).collection('list_recipes').onSnapshot((snapshot) => {
                         // console.log(snapshot.docChanges());
                         snapshot.docChanges().forEach((change => {
-
-                            
+                                        console.log("TYPE:"+change.type);
+            
                                         // console.log("doc-id:",change.doc.id);
                                         // console.log("id:",ID);
                                         if(change.doc.id === (ID).substring(1,ID.length-1))
@@ -228,12 +211,14 @@
                                             temp_image_rec=change.doc.data().image;
                                             temp_date=change.doc.data().date;
 
+                                            console.log("NAME:",temp_name);
+
                                             var result = "";
                                             result_ = "<a href="+ temp_image_rec +" data-fancybox='gal'><img src="+ temp_image_rec +" alt='Image' class='img-fluid'></a>"
                                             document.getElementById("image_recipe_detail").innerHTML = result_;
 
                                             var result2 = "";
-                                            result2 = "<span class='d-block mb-3 text-white' data-aos='fade-up'><"+ temp_date +"><span class='mx-2 text-primary'>&bullet;</span>by ME</span><h1 class='mb-4' data-aos='fade-up' data-aos-delay='100'>"+ temp_name +"</h1>"
+                                            result2 = "<span class='d-block mb-3 text-white' data-aos='fade-up'>"+ temp_date +"<span class='mx-2 text-primary'>&bullet;</span>by ME</span><h1 class='mb-4' data-aos='fade-up' data-aos-delay='100'>"+ temp_name +"</h1>"
                                             document.getElementById("cover_detail").innerHTML = result2;
 
                                             document.getElementById("v-pills-Tips").innerHTML = temp_tips;
@@ -242,7 +227,7 @@
                                         }
                                       
 
-                                
+                                      
 
                             }))
                             })
@@ -250,11 +235,11 @@
                    }
               })
                   
-          });
+
 
           
         
-    </script>
+    </script> -->
   
   </body>
 
