@@ -110,7 +110,7 @@
         <div class="row">
           <div class="input-group col-lg-12 mb-4">
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Name Recipe" aria-label="Recipient's username" aria-describedby="basic-addon2" style="border-radius: 30px 0px 0px 30px; border-width: 2px; border-color: #FFA188; padding-left: 20px;">
+              <input type="text" class="form-control" placeholder="Name Recipe" aria-label="Recipien name" autocomplete="off" id="search_myrecipe" aria-describedby="basic-addon2" style="border-radius: 30px 0px 0px 30px; border-width: 2px; border-color: #FFA188; padding-left: 20px;">
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" style="background-color: #FFA188; color: white; border-color: #FFA188; font-family: sans-serif;"><span class="icon-search"></span></button>
               </div>
@@ -118,7 +118,7 @@
             </div>
         </div>
         <br>
-        <div class="recipes row">
+        <div class="recipes row" id="listmyrecipe">
           <!-- <div class="col-lg-4 col-md-6 mb-4">
             <div class="post-entry-1 h-100">
               <a href="detail_recipe.html">
@@ -297,7 +297,28 @@
  
     <script src="js/db.js"></script>
     <script src="js/ui.js"></script>
-  
+    
+    <script>
+      $(document).ready(function(){
+        $("#search_myrecipe").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          document.getElementById("listmyrecipe").innerHTML = "";
+          db.collection('recipes').doc(firebase.auth().currentUser.uid).collection('list_recipes').onSnapshot((snapshot) => {
+          // console.log(snapshot.docChanges());
+              snapshot.docChanges().forEach((change => {
+                var temp=change.doc.data().title.toLowerCase();
+                if(temp.indexOf(value)>-1)
+                {
+                  renderRecipe(change.doc.data(), change.doc.id);
+                }
+              }))
+            })
+          
+        });
+      });
+      </script>
+
+
   
    
 

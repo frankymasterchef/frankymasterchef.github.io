@@ -1,0 +1,262 @@
+
+
+<!doctype html>
+<html lang="en">
+  
+  <head>
+    <title>Chefpad</title>
+    <link rel="icon" href="/images/icon_chef_128.png" type="image/png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,700|Playfair+Display:400,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="manifest" href="/manifest.json">
+    
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function(){
+      $("#navbar").load("navbar.html");
+  
+      })
+    </script>
+
+    <script>
+        config_file();
+        const db = firebase.firestore();
+    </script>
+
+    
+
+
+  </head>
+
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    <div class="site-wrap" id="home-section">
+
+      <div id="navbar">
+      </div>
+
+    <div class="ftco-blocks-cover-1">
+      <div class="site-section-cover bg-image overlay"  style="background-image: url('images/explore_cover.jpg')">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-7" id="cover_detail">
+              <!-- <script>
+                var result = "";
+                result = "<span class='d-block mb-3 text-white' data-aos='fade-up'><"+ window.temp_date +"><span class='mx-2 text-primary'>&bullet;</span>by "+ window.temp_name_auth +"</span><h1 class='mb-4' data-aos='fade-up' data-aos-delay='100'>"+ window.temp_name +"</h1>"
+                document.getElementById("cover_detail").innerHTML = result;
+              </script> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+ 
+
+    <div class="site-section">
+      <div class="container">
+
+    
+
+        <div class="row">
+           <div class="col-md-12 mb-4">
+              <div class="row">
+               <div class="col-md-8 mb-4 mt-md-5">
+                  <div class="d-flex align-items-center" id="image_recipe_detail">
+
+                    <!-- <script>
+                      var result_ = "";
+                      result_ = "<a href="+ window.temp_image_rec +" data-fancybox='gal'><img src="+ window.temp_image_rec +" alt='Image' class='img-fluid'></a>"
+                      document.getElementById("image_recipe_detail").innerHTML = result_;
+                    </script> -->
+                  </div>
+                </div>
+                <div class="col-md-4 mt-md-5 sidebar">
+                  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                      <a class="nav-link active" id="v-pills-Ingredients-tab" data-toggle="pill" href="#v-pills-Ingredients" role="tab" aria-controls="v-pills-Ingredients" aria-selected="true">Ingredients</a>
+                      <a class="nav-link" id="v-pills-Step-tab" data-toggle="pill" href="#v-pills-Step" role="tab" aria-controls="v-pills-Step" aria-selected="false">Steps</a>
+                       <a class="nav-link" id="v-pills-Tips-tab" data-toggle="pill" href="#v-pills-Tips" role="tab" aria-controls="v-pills-Tips" aria-selected="false">Tips</a>
+                    </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8 blog-content">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-Ingredients" role="tabpanel" aria-labelledby="v-pills-Ingredients-tab">
+                  <script>
+                    // var result_1 = "";
+                    // var delimiter = window.temp_ingred.split("-");
+                    // for(var x in delimiter){
+                    //   result_1 += "<span class='mx-2 text-primary'>&bullet;</span>"+ delimiter[x] +"<br>"
+                    // }
+                    document.getElementById("v-pills-Ingredients").innerHTML = window.temp_ingred;
+                  </script>
+
+                </div>
+                <div class="tab-pane fade" id="v-pills-Step" role="tabpanel" aria-labelledby="v-pills-Step-tab">
+
+                  <script>
+                    // var result_2 = "";
+                    // var delimiter = window.temp_step.split("-");
+                    // for(var x in delimiter){
+                    //   result_2 += "<span class='mx-2 text-primary'></span>"+ delimiter[x] +"<br><br>"
+                    // }
+                    document.getElementById("v-pills-Step").innerHTML = window.temp_step;
+                  </script>
+                </div>
+                <div class="tab-pane fade" id="v-pills-Tips" role="tabpanel" aria-labelledby="v-pills-Tips-tab">
+                  <script>
+                    // var result_3 = "";
+                    // var delimiter = window.temp_tips.split("-");
+                    // for(var x in delimiter){
+                    //   result_3 += "<span class='mx-2 text-primary'>&bullet;</span>"+ delimiter[x] +"<br>"
+                    // }
+                    document.getElementById("v-pills-Tips").innerHTML = window.temp_tips;
+                  </script>
+                </div>
+           </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+
+    
+
+    
+
+    <footer class="site-footer bg-image overlay" style="background-image: url('images/Ingredients.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h3 class="font-weight-bold serif text-white">Chefpad</h3>
+          </div>
+          <div class="col-12 text-center mb-5">
+            <a href="index.html" class="">Home</a>
+            <span class="mx-3"></span>
+            <a href="explore.html" class="">Explore</a>
+            <span class="mx-3"></span>
+            <a href="myrecipe.html" class="">Create</a>
+            <span class="mx-3"></span>
+            <a href="account.html" class="">Account</a>
+          </div>
+          <div class="col-12">
+            <div class="social_29128 white text-center">
+              
+              <a href="#"><span class="icon-twitter"></span></a>
+              <a href="#"><span class="icon-instagram"></span></a>
+              <a href="#"><span class="icon-facebook"></span></a>
+              <a href="#"><span class="icon-linkedin"></span></a>
+              
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </footer>
+
+    </div>
+
+  
+    <script src="js/jquery-migrate-3.0.0.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/main.js"></script>
+
+
+    <script>
+      $(document).ready(function(){
+        firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                        var temp_name="";
+                        var temp_ingred="";
+                        var temp_step="";
+                        var temp_tips="";
+                        var temp_image_rec="";
+                        var temp_date="";
+                        
+                        const queryString = window.location.search;
+                        const urlParams = new URLSearchParams(queryString);
+                        const ID = urlParams.get('id')
+                        db.collection('recipes').doc(firebase.auth().currentUser.uid).collection('list_recipes').onSnapshot((snapshot) => {
+                        // console.log(snapshot.docChanges());
+                        snapshot.docChanges().forEach((change => {
+
+                            
+                                        // console.log("doc-id:",change.doc.id);
+                                        // console.log("id:",ID);
+                                        if(change.doc.id === (ID).substring(1,ID.length-1))
+                                        {
+                                            temp_name=change.doc.data().title;
+                                            temp_ingred=change.doc.data().ingredients;
+                                            temp_step=change.doc.data().steps;
+                                            temp_tips=change.doc.data().tips;
+                                            temp_image_rec=change.doc.data().image;
+                                            temp_date=change.doc.data().date;
+
+                                            var result = "";
+                                            result_ = "<a href="+ temp_image_rec +" data-fancybox='gal'><img src="+ temp_image_rec +" alt='Image' class='img-fluid'></a>"
+                                            document.getElementById("image_recipe_detail").innerHTML = result_;
+
+                                            var result2 = "";
+                                            result2 = "<span class='d-block mb-3 text-white' data-aos='fade-up'><"+ temp_date +"><span class='mx-2 text-primary'>&bullet;</span>by ME</span><h1 class='mb-4' data-aos='fade-up' data-aos-delay='100'>"+ temp_name +"</h1>"
+                                            document.getElementById("cover_detail").innerHTML = result2;
+
+                                            document.getElementById("v-pills-Tips").innerHTML = temp_tips;
+                                            document.getElementById("v-pills-Ingredients").innerHTML = temp_ingred;
+                                            document.getElementById("v-pills-Step").innerHTML = temp_step;
+                                        }
+                                      
+
+                                
+
+                            }))
+                            })
+
+                   }
+              })
+                  
+          });
+
+          
+        
+    </script>
+  
+  </body>
+
+</html>
+
