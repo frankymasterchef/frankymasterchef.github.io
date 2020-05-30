@@ -90,6 +90,36 @@ var path = window.location.pathname;
   //   });
   // }
 
+    if(path=="/detail_myrecipe.html"){
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          
+       
+      console.log("UID:"+ firebase.auth().currentUser.uid);
+      db.collection('recipes').doc(firebase.auth().currentUser.uid).collection('list_recipes').onSnapshot((snapshot) => {
+          // console.log(snapshot.docChanges());
+          snapshot.docChanges().forEach((change => {
+            // console.log(change, change.doc.data(), change.doc.id);
+            if(change.type === 'added'){
+              const queryString = window.location.search;
+              const urlParams = new URLSearchParams(queryString);
+              const ID = urlParams.get('id')
+              if(change.doc.id === (ID).substring(1,ID.length-1))
+              {
+                 renderdetailrecipe(change.doc.data(), change.doc.id);
+                  // console.log("doc-data:" + change.doc.data().title);
+                  // console.log("doc-id:" + change.doc.id);
+              }
+               
+            }
+           
+          }))
+        })
+
+      }
+    })
+    }
+
 
   let file={};
   let url_image="";
