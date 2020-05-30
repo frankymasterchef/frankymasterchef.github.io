@@ -19,23 +19,54 @@ db.enablePersistence()
 //real-time listener
 var path = window.location.pathname;
     if(path=="/myrecipe.html"){
-      db.collection('recipes').onSnapshot((snapshot) => {
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          
+       
+      console.log("UID:"+ firebase.auth().currentUser.uid);
+      db.collection('recipes').doc(firebase.auth().currentUser.uid).collection('list_recipes').onSnapshot((snapshot) => {
           // console.log(snapshot.docChanges());
           snapshot.docChanges().forEach((change => {
             // console.log(change, change.doc.data(), change.doc.id);
             if(change.type === 'added'){
-              firebase.auth().onAuthStateChanged(function(user) {
-                if (user) {
+            
                   renderRecipe(change.doc.data(), change.doc.id);
-                }
-              })
+                  // console.log("doc-data:" + change.doc.data().title);
+                  // console.log("doc-id:" + change.doc.id);
+               
             }
             if(change.type === 'removed'){
               removeRecipe(change.doc.id);
             }
           }))
         })
+
+      }
+    })
+
+      //   db.collection("recipes").get().then(function(querySnapshot) {
+      //     querySnapshot.forEach(function(doc) {
+      //         // doc.data() is never undefined for query doc snapshots
+      //         console.log(doc.id, " => ", doc.data());
+      //         console.log(doc.id, " => ", doc.data().title);
+      //     });
+      // });
+
+
+        // db.collection("recipes").where("capital", "==", true)
+        // .get()
+        // .then(function(querySnapshot) {
+        //     querySnapshot.forEach(function(doc) {
+        //         // doc.data() is never undefined for query doc snapshots
+        //         console.log(doc.id, " => ", doc.data());
+        //     });
+        // })
+        // .catch(function(error) {
+        //     console.log("Error getting documents: ", error);
+        // });
 }
+
+
 
 
   // $("#file").on("change", function(event){
@@ -105,8 +136,8 @@ if(path=="/create_recipe.html"){
               image: imgURL,
               date:full_date
             };
-          
-            db.collection('recipes').add(recipe)
+            console.log("UID:"+ firebase.auth().currentUser.uid);
+            db.collection('recipes').doc(firebase.auth().currentUser.uid).collection('list_recipes').add(recipe)
             .catch(err => console.log(err));
           
             form.title.value='';
@@ -136,7 +167,7 @@ if(path=="/create_recipe.html"){
     //console.log(event);
     if(event.target.tagName === 'I'){
       const id = event.target.getAttribute('data-id');
-      db.collection('recipes').doc(id).delete();
+      db.collection('recipes').doc(firebase.auth().currentUser.uid).collection('list_recipes').doc(id).delete();
     }
   });
 }
