@@ -15,6 +15,8 @@ const removeRecipe = (id) => {
     recipe.remove();
 }; 
 
+
+//page detail myrecipe
 const recipes_detail= document.querySelector('.detail');
 const renderdetailrecipe = (data,id) =>{
     const html_ = `
@@ -23,7 +25,7 @@ const renderdetailrecipe = (data,id) =>{
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-7" id="cover_detail">
-           <span class='d-block mb-3 text-white' data-aos='fade-up'>${data.date}<span class='mx-2 text-primary'>&bullet;</span>by "Me"</span><h1 class='mb-4' data-aos='fade-up' data-aos-delay='100'>${data.title}</h1>"
+           <span class='d-block mb-3 text-white' data-aos='fade-up'>${data.date}<span class='mx-2 text-primary'>&bullet;</span>by Me</span><h1 class='mb-4' data-aos='fade-up' data-aos-delay='100'>${data.title}</h1>
           </div>
         </div>
       </div>
@@ -45,7 +47,7 @@ const renderdetailrecipe = (data,id) =>{
                 <div class="d-flex align-items-center" id="image_recipe_detail">
 
                  
-                   "<a href="${data.image}" data-fancybox='gal'><img src="${data.image}" alt='Image' class='img-fluid'></a>"
+                   <a href=${data.image} data-fancybox='gal'><img src=${data.image} alt='Image' class='img-fluid'></a>
 
                 
                 </div>
@@ -74,10 +76,23 @@ const renderdetailrecipe = (data,id) =>{
                ${data.steps}<br><br>
               </div>
               <div class="tab-pane fade" id="v-pills-Tips" role="tabpanel" aria-labelledby="v-pills-Tips-tab">
-                <span class='mx-2 text-primary'>&bullet;</span>${data.tips}<br><br>
+                ${data.tips}<br><br>
               </div>
          </div>
         </div>
+
+
+        <div class="col-md-2 sidebar">
+            
+            
+            <div class="sidebar-box" id="edited_button">
+
+             <a class="btn btn-primary text-white py-3 px-5" role ="button" href='edit_myrecipe.html?id="${id}"'><i class="icon-edit" href='edit_myrecipe.html?id="${id}"'></i></a>
+
+            </div>
+
+            
+          </div>
         
       </div>
     </div>
@@ -87,3 +102,105 @@ const renderdetailrecipe = (data,id) =>{
 
     recipes_detail.innerHTML += html_;
 };
+
+
+//page edit myrecipe
+const edited= document.querySelector('.edit');
+const rendereditedRecipe = (data, id) => {
+  
+  const html2 =`
+    <div class="site-section">
+
+    <div class="text-center">
+      <h2 class="heading-border-bottom font-weight-bold serif text-black mb-5 text-center">Edit Your Recipe</h2>
+    </div>
+
+    <div class="site-section bg-image overlay features_75651" style="background-image: url('images/create_bg2.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mt-md-5 sidebar mb-4">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link active" id="v-pills-Ingredients-tab" data-toggle="pill" href="#v-pills-Ingredients" role="tab" aria-controls="v-pills-Ingredients" aria-selected="true">Ingredients</a>
+              <a class="nav-link" id="v-pills-Step-tab" data-toggle="pill" href="#v-pills-Step" role="tab" aria-controls="v-pills-Step" aria-selected="false">Steps</a>
+              <a class="nav-link" id="v-pills-Tips-tab" data-toggle="pill" href="#v-pills-Tips" role="tab" aria-controls="v-pills-Tips" aria-selected="false">Tips</a>
+            </div>
+          </div>
+
+          <div class="col-lg-8 mb-5 mt-md-5">
+            <form class="edit-recipe">
+
+              <div class="form-group row">
+                <div class="col-md-10">
+                  <input type="text" class="form-control" placeholder="Title" id="title" value="${data.title}" required>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-10">
+                  <input type="text" class="form-control" placeholder="Short Description" id="short_desc" value="${data.short_desc}" required>
+                </div>
+              </div>
+
+              <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-Ingredients" role="tabpanel" aria-labelledby="v-pills-Ingredients-tab">
+                  <div class="form-group row">
+                    <div class="col-md-10 mb-4">
+                      <textarea name="" id="Ingredients" class="form-control" placeholder="Write Ingredients" cols="30" rows="10" required>${data.ingredients}</textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-Step" role="tabpanel" aria-labelledby="v-pills-Step-tab">
+                  <div class="form-group row">
+                    <div class="col-md-10 mb-4">
+                      <textarea name="" id="Steps" class="form-control" placeholder="Write Steps" cols="30" rows="10" required>${data.steps}</textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-Tips" role="tabpanel" aria-labelledby="v-pills-Tips-tab">
+                  <div class="form-group row">
+                    <div class="col-md-10 mb-4">
+                      <textarea name="" id="Tips" class="form-control" placeholder="Write Tips" cols="30" rows="10" required>${data.tips}</textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Upload image input-->
+              <div class="form-group row">
+                <div class="col-md-10 mb-4">
+                  <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm mb-4">
+                    <input id="upload" type="file" onchange="chooseFile(event)" class="form-control border-0">
+                    <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
+                    <div class="input-group-append">
+                      <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                    </div>
+                  </div>
+
+                  <div class="image-area mt-4 mb-4" id="pic_area"><img id="imageResult" src="${data.image}" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+
+                  <div class="form-group row">
+                    <div class="col-md-8 mr-auto ml-auto mb-4">
+                      <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5 upload-group" value="Submit">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  
+  `;
+  edited.innerHTML += html2;
+
+  
+};
+
+
+

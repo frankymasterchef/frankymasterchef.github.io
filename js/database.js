@@ -18,8 +18,15 @@ function config_file() {
 function logout() {
   firebase.auth().signOut().then(function() {
     // Sign-out successfull.
+    window.indexedDB.webkitGetDatabaseNames().onsuccess = function(sender,args)
+    {
+        var r = sender.target.result;
+        for(var i in r)
+            indexedDB.deleteDatabase(r[i]);
+    }; 
     document.getElementById("logout").innerHTML = "";
     window.location.href = "/account.html";
+    
   }).catch(function(error) {
     alert("failed logout");
   })

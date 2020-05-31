@@ -69,27 +69,7 @@ var path = window.location.pathname;
 
 
 
-  // $("#file").on("change", function(event){
-  //   selectedFile=event.target.files[0];
-  // });
-
-  // function uploadfile(){
-  //   var filename = selectedFile.name;
-  //   var storageRef =  firebase.storage().ref('/myrecipe/');
-  //   var uploadTask = storageRef.put(selectedFile);
-
-  //   uploadTask.on('state_changed', function(snapshot){
-
-  //   }, function(error){
-
-  //   },function(){
-
-  //     var downloadURL = uploadTask.snapshot.downloadURL;
-  //     console.log(downloadURL);
-
-  //   });
-  // }
-
+// get detail data my recipe
     if(path=="/detail_myrecipe.html"){
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -119,6 +99,9 @@ var path = window.location.pathname;
       }
     })
     }
+
+
+    
 
 
   let file={};
@@ -153,7 +136,7 @@ if(path=="/create_recipe.html"){
       var today = new Date();
       var convert_month = month[today.getMonth()];
       var full_date = convert_month+' '+today.getDate()+', '+today.getFullYear();
-    
+      document.getElementById("imageResult").innerHTML = file;
       firebase.storage().ref('recipes/' + file.name).put(file).then(function(){
           console.log("success upload");
           firebase.storage().ref('recipes/' + file.name).getDownloadURL().then(imgURL => {
@@ -168,16 +151,18 @@ if(path=="/create_recipe.html"){
             };
             console.log("UID:"+ firebase.auth().currentUser.uid);
             db.collection('recipes').doc(firebase.auth().currentUser.uid).collection('list_recipes').add(recipe)
+            .then(function() {
+              location.reload();
+             })
             .catch(err => console.log(err));
-          
-            form.title.value='';
-            form.short_desc.value='';
-            form.Ingredients.value='';
-            form.Steps.value='';
-            form.Tips.value='';
-            document.getElementById("pic_area").innerHTML = "";
-            document.getElementById("upload-label").innerHTML = "";
-          
+            // location.reload();
+            // form.title.value='';
+            // form.short_desc.value='';
+            // form.Ingredients.value='';
+            // form.Steps.value='';
+            // form.Tips.value='';
+            // document.getElementById("pic_area").innerHTML = "";
+            // document.getElementById("upload-label").innerHTML = "";
           })
       }).catch(error => {
           console.log(error.message);
@@ -187,6 +172,7 @@ if(path=="/create_recipe.html"){
 
 
   });
+  
 
 }
 
@@ -200,4 +186,125 @@ if(path=="/create_recipe.html"){
       db.collection('recipes').doc(firebase.auth().currentUser.uid).collection('list_recipes').doc(id).delete();
     }
   });
+}
+
+
+//get detail data my recipe before edit and edited
+if(path=="/edit_myrecipe.html"){
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      
+   
+  console.log("UID:"+ firebase.auth().currentUser.uid);
+  db.collection('recipes').doc(firebase.auth().currentUser.uid).collection('list_recipes').onSnapshot((snapshot) => {
+      // console.log(snapshot.docChanges());
+      snapshot.docChanges().forEach((change => {
+        // console.log(change, change.doc.data(), change.doc.id);
+        if(change.type === 'added'){
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+          const ID = urlParams.get('id')
+          if(change.doc.id === (ID).substring(1,ID.length-1))
+          {
+             rendereditedRecipe(change.doc.data(), change.doc.id);
+             
+             const form = document.querySelector('form');
+             form.addEventListener('submit',event =>{
+             event.preventDefault();
+            
+                  var month = new Array();
+                  month[0] = "January";
+                  month[1] = "February";
+                  month[2] = "March";
+                  month[3] = "April";
+                  month[4] = "May";
+                  month[5] = "June";
+                  month[6] = "July";
+                  month[7] = "August";
+                  month[8] = "September";
+                  month[9] = "October";
+                  month[10] = "November";
+                  month[11] = "December";
+            
+                  var today = new Date();
+                  var convert_month = month[today.getMonth()];
+                  var full_date = convert_month+' '+today.getDate()+', '+today.getFullYear();
+
+                  console.log("FILE:"+ file);
+                  
+                  //cek kalo user mau update gambar baru atau tidak
+                  if(file.name != undefined)
+                  {
+                    console.log("NAME:" + file.name);
+                    document.getElementById("imageResult").innerHTML = file;
+                    document.getElementById("upload-label").innerHTML = file.name;
+                    firebase.storage().ref('recipes/' + file.name).put(file).then(function(){
+                        console.log("success upload");
+                        firebase.storage().ref('recipes/' + file.name).getDownloadURL().then(imgURL => {
+                        
+                            const recipe_ = {
+                              title: form.title.value,
+                              short_desc: form.short_desc.value,
+                              ingredients: form.Ingredients.value,
+                              steps: form.Steps.value,
+                              tips: form.Tips.value,
+                              image: imgURL,
+                              date:full_date
+                            }; 
+                          
+                        
+                            db.collection('recipes').doc(firebase.auth().currentUser.uid).collection('list_recipes').doc(change.doc.id).set(recipe_)
+                            .then(function() {
+                              location.reload();
+                             })
+                            .catch(err => console.log(err));
+
+                        
+                        })
+                    }).catch(error => {
+                        console.log(error.message);
+                    })
+                }
+
+                  else{
+                    const recipe_ = {
+                      title: form.title.value,
+                      short_desc: form.short_desc.value,
+                      ingredients: form.Ingredients.value,
+                      steps: form.Steps.value,
+                      tips: form.Tips.value,
+                      image: change.doc.data().image,
+                      date:full_date
+                    }; 
+                  
+                
+                    db.collection('recipes').doc(firebase.auth().currentUser.uid).collection('list_recipes').doc(change.doc.id).set(recipe_)
+                    .then(function() {
+                      location.reload();
+                     })
+                    .catch(err => console.log(err));
+
+                                      
+                  }
+                  
+
+            
+              });
+            
+            
+             
+          }
+           
+        }
+       
+      }))
+    })
+
+    
+
+
+    
+
+  }
+})
 }
