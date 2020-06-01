@@ -132,7 +132,9 @@ if(path=="/create_recipe.html"){
       month[9] = "October";
       month[10] = "November";
       month[11] = "December";
-
+      temp_ingreds = form.Ingredients.value.replace(/\r?\n/g, '<br />');
+      temp_steps = form.Steps.value.replace(/\r?\n/g, '<br />');
+      temp_tips= form.Tips.value.replace(/\r?\n/g, '<br />');
       var today = new Date();
       var convert_month = month[today.getMonth()];
       var full_date = convert_month+' '+today.getDate()+', '+today.getFullYear();
@@ -144,9 +146,9 @@ if(path=="/create_recipe.html"){
             const recipe = {
               title: form.title.value,
               short_desc: form.short_desc.value,
-              ingredients: form.Ingredients.value,
-              steps: form.Steps.value,
-              tips: form.Tips.value,
+              ingredients: temp_ingreds,
+              steps: temp_steps,
+              tips: temp_tips,
               image: imgURL,
               date:full_date
             };
@@ -231,6 +233,10 @@ if(path=="/edit_myrecipe.html"){
                   var convert_month = month[today.getMonth()];
                   var full_date = convert_month+' '+today.getDate()+', '+today.getFullYear();
 
+                  temp_ingreds = form.Ingredients.value.replace(/\r?\n/g, '<br />');
+                  temp_steps = form.Steps.value.replace(/\r?\n/g, '<br />');
+                  temp_tips= form.Tips.value.replace(/\r?\n/g, '<br />');
+
                   console.log("FILE:"+ file);
                   
                   //cek kalo user mau update gambar baru atau tidak
@@ -246,9 +252,9 @@ if(path=="/edit_myrecipe.html"){
                             const recipe_ = {
                               title: form.title.value,
                               short_desc: form.short_desc.value,
-                              ingredients: form.Ingredients.value,
-                              steps: form.Steps.value,
-                              tips: form.Tips.value,
+                              ingredients: temp_ingreds,
+                              steps: temp_steps,
+                              tips: temp_tips,
                               image: imgURL,
                               date:full_date
                             }; 
@@ -271,9 +277,9 @@ if(path=="/edit_myrecipe.html"){
                     const recipe_ = {
                       title: form.title.value,
                       short_desc: form.short_desc.value,
-                      ingredients: form.Ingredients.value,
-                      steps: form.Steps.value,
-                      tips: form.Tips.value,
+                      ingredients: temp_ingreds,
+                      steps: temp_steps,
+                      tips: temp_tips,
                       image: change.doc.data().image,
                       date:full_date
                     }; 

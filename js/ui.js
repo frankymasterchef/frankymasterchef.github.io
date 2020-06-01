@@ -19,6 +19,7 @@ const removeRecipe = (id) => {
 //page detail myrecipe
 const recipes_detail= document.querySelector('.detail');
 const renderdetailrecipe = (data,id) =>{
+    
     const html_ = `
     <div class="ftco-blocks-cover-1">
     <div class="site-section-cover bg-image overlay"  style="background-image: url('images/explore_cover.jpg')">
@@ -107,7 +108,9 @@ const renderdetailrecipe = (data,id) =>{
 //page edit myrecipe
 const edited= document.querySelector('.edit');
 const rendereditedRecipe = (data, id) => {
-  
+  const ingreds= data.ingredients.replace(/<br\s*[\/]?>/gi, "\n");
+  const steps= data.steps.replace(/<br\s*[\/]?>/gi, "\n");
+  const tips= data.tips.replace(/<br\s*[\/]?>/gi, "\n");
   const html2 =`
     <div class="site-section">
 
@@ -145,21 +148,21 @@ const rendereditedRecipe = (data, id) => {
                 <div class="tab-pane fade show active" id="v-pills-Ingredients" role="tabpanel" aria-labelledby="v-pills-Ingredients-tab">
                   <div class="form-group row">
                     <div class="col-md-10 mb-4">
-                      <textarea name="" id="Ingredients" class="form-control" placeholder="Write Ingredients" cols="30" rows="10" required>${data.ingredients}</textarea>
+                      <textarea name="" id="Ingredients" class="form-control" placeholder="Write Ingredients" cols="30" rows="10" required>${ingreds}</textarea>
                     </div>
                   </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-Step" role="tabpanel" aria-labelledby="v-pills-Step-tab">
                   <div class="form-group row">
                     <div class="col-md-10 mb-4">
-                      <textarea name="" id="Steps" class="form-control" placeholder="Write Steps" cols="30" rows="10" required>${data.steps}</textarea>
+                      <textarea name="" id="Steps" class="form-control" placeholder="Write Steps" cols="30" rows="10" required>${steps}</textarea>
                     </div>
                   </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-Tips" role="tabpanel" aria-labelledby="v-pills-Tips-tab">
                   <div class="form-group row">
                     <div class="col-md-10 mb-4">
-                      <textarea name="" id="Tips" class="form-control" placeholder="Write Tips" cols="30" rows="10" required>${data.tips}</textarea>
+                      <textarea name="" id="Tips" class="form-control" placeholder="Write Tips" cols="30" rows="10" required>${tips}</textarea>
                     </div>
                   </div>
                 </div>
