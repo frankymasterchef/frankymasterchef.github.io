@@ -43,6 +43,18 @@
         const db = firebase.firestore();
     </script>
 
+    <script>
+      // Your web app's Firebase configuration
+      check_signin();
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+        } else {
+          alert("Anda belum login, login terlebih dahulu");
+          window.location.href = "/account.html";
+        }
+      })
+    </script>
+
     
 
 
