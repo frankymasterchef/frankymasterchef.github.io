@@ -18,14 +18,15 @@ function config_file() {
 function logout() {
   firebase.auth().signOut().then(function() {
     // Sign-out successfull.
-    window.indexedDB.webkitGetDatabaseNames().onsuccess = function(sender,args)
-    {
-        var r = sender.target.result;
-        for(var i in r)
-            indexedDB.deleteDatabase(r[i]);
-    }; 
-    document.getElementById("logout").innerHTML = "";
-    window.location.href = "/account.html";
+    // firebase.firestore().clearPersistence()
+    // .then(function() {
+    //   alert("peristence clear");
+      document.getElementById("logout").innerHTML = "";
+      window.location.href = "/account.html";
+    //  })
+    //  .catch(error => {
+    //   console.error('Could not enable persistence:', error.code);
+    // })
     
   }).catch(function(error) {
     alert("failed logout");

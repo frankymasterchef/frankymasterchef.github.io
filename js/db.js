@@ -136,6 +136,7 @@ if(path=="/create_recipe.html"){
       var today = new Date();
       var convert_month = month[today.getMonth()];
       var full_date = convert_month+' '+today.getDate()+', '+today.getFullYear();
+      console.log("NAME:" + file.name);
       document.getElementById("imageResult").innerHTML = file;
       firebase.storage().ref('recipes/' + file.name).put(file).then(function(){
           console.log("success upload");
@@ -308,3 +309,4 @@ if(path=="/edit_myrecipe.html"){
   }
 })
 }
+
