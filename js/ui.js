@@ -22,7 +22,7 @@ const renderdetailrecipe = (data,id) =>{
     
     const html_ = `
     <div class="ftco-blocks-cover-1">
-    <div class="site-section-cover bg-image overlay"  style="background-image: url('images/explore_cover.jpg')">
+    <div class="site-section-cover bg-image overlay"  style="background-image: url('https://firebasestorage.googleapis.com/v0/b/webchefpad-1e9bd.appspot.com/o/static%2Fexplore_cover.webp?alt=media&token=5f76d7d5-0ad3-413e-b7de-72f1bd4edcc9')">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-7" id="cover_detail">
@@ -118,7 +118,7 @@ const rendereditedRecipe = (data, id) => {
       <h2 class="heading-border-bottom font-weight-bold serif text-black mb-5 text-center">Edit Your Recipe</h2>
     </div>
 
-    <div class="site-section bg-image overlay features_75651" style="background-image: url('images/create_bg2.jpg')">
+    <div class="site-section bg-image overlay features_75651" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/webchefpad-1e9bd.appspot.com/o/static%2Fcreate_bg2.webp?alt=media&token=e38ffc37-4274-43cd-8257-d04db1b34700')">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 mt-md-5 sidebar mb-4">
