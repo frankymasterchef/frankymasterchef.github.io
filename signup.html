@@ -129,45 +129,31 @@
             <div class="col-lg-8 mb-5">
               <form action="#" method="post">
 
-                <div class="form-group row">
-                  <div class="col-md-10 mb-4">
-                    <div class="picture">
-                      <img src="images/chef_ic.png" class="picture-src" id="wizardPicturePreview" title="">
-                      <input type="file" id="wizard-picture" class="">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group row">
-                  <div class="col-md-5 mb-4 mb-lg-0">
-                    <input type="text" id="first_name" class="form-control" placeholder="First name">
-                  </div>
-                  <div class="col-md-5 mb-4">
-                    <input type="text" id="last_name" class="form-control" placeholder="Last name">
-                  </div>
-                </div>
+               
 
                 <div class="form-group row">
                   <div class="col-md-10 mb-4">
+                    <label for="email" style="color: white;">Email</label>
                     <input type="email" id="email" class="form-control" placeholder="Email">
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <div class="col-md-10 mb-4">
+                    <label for="password" style="color: white;">Password</label>
                     <input type="password" id="password" class="form-control" placeholder="Password">
                   </div>
                 </div>
 
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                   <div class="col-md-10 mb-4">
                     <textarea name="" id="address" class="form-control" placeholder="Address" cols="30" rows="10"></textarea>
                   </div>
-                </div>
+                </div> -->
 
                 <div class="form-group row">
                   <div class="col-md-10 mr-auto mb-4">
-                    <input onclick="signup_authentication()"   class="btn btn-block btn-primary text-white py-3 px-5" value="Submit">
+                    <input onclick="signup_authentication()"  type="button" class="btn btn-block btn-primary text-white py-3 px-5" value="Submit">
                   </div>
                 </div>
 
@@ -282,11 +268,7 @@
     })
   </script>
   <script>
-    $(document).ready(function() {
-      $("#wizard-picture").change(function() {
-        readURL(this);
-      });
-    });
+
 
     function signup_authentication() {
       var username = document.getElementById("email").value;
@@ -298,19 +280,10 @@
       })
       if (res) {
         alert("Signup berhasil");
-        window.location.href = "create_recipe.html";
+        window.location.href = "account.html";
       }
     }
-    function readURL(input) {
-      if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-          $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
-        }
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
+    
   </script>
 
 </body>
