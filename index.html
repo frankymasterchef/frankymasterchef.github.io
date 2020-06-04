@@ -23,6 +23,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
   <script src="js/database.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="lazysizes.min.js" async></script>
   <script>
     $(function(){
     $("#navbar").load("navbar.html");
@@ -39,7 +40,7 @@
     <div id="navbar">
     </div>
     <div class="ftco-blocks-cover-1">
-      <div class="site-section-cover bg-image overlay" style="background-image: url('images/Ingredients.jpg')">
+      <div class="site-section-cover bg-image overlay lazyload" style="background-image: url('images/Ingredients.jpg')">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-md-7">
@@ -128,7 +129,7 @@
         <script>
           var result = "";
           for (var x in detail_recipe) {
-            result += "<div><div class='testimonial-2'><a href=" + detail_recipe[x].Image_Recipe + " data-fancybox='gal'><img src=" + detail_recipe[x].Image_Recipe + " alt='Image' class='img-fluid'></a><br><h2><a href='detail_recipe.html?id=" + detail_recipe[x].id + "'>" + detail_recipe[x].Name +
+            result += "<div><div class='testimonial-2'><a href=" + detail_recipe[x].Image_Recipe + " data-fancybox='gal'><img src=" + detail_recipe[x].Image_Recipe + " alt='Image' class='img-fluid lazyload'></a><br><h2><a href='detail_recipe.html?id=" + detail_recipe[x].id + "'>" + detail_recipe[x].Name +
               "</a></h2><h6>" + detail_recipe[x].short_desc + "</h6></div></div>"
           }
           document.getElementById("recipe_day").innerHTML = result;
@@ -150,14 +151,14 @@
           </div>
           <div class="col-md-6">
             <div class="d-flex align-items-center">
-              <div class="bg-img-1 mr-md-4 mt-md-5" style="background-image: url('images/about_cook_1.jpg'); "></div>
-              <div class="bg-img-1" style="background-image: url('images/about_cook_2.jpg'); "></div>
+              <div class="bg-img-1 mr-md-4 mt-md-5 lazyload" style="background-image: url('images/about_cook_1.jpg'); "></div>
+              <div class="bg-img-1 lazyload" style="background-image: url('images/about_cook_2.jpg'); "></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <footer class="site-footer bg-image overlay" style="background-image: url('images/Ingredients.jpg')">
+    <footer class="site-footer bg-image overlay lazyload" style="background-image: url('images/Ingredients.jpg')">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center mb-5">
