@@ -19,7 +19,8 @@
   <!-- MAIN CSS -->
   <link rel="stylesheet" href="css/style.css" async>
   <meta name="msapplication-TileImage" content="/images/icon_chef_128.png" >
-  <script src="js/data.js"></script>
+  <script src="js/data.js" async></script>
+  <script src="lazysizes.min.js" async></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
   <script src="js/database.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -128,7 +129,7 @@
         <script>
           var result = "";
           for (var x in detail_recipe) {
-            result += "<div><div class='testimonial-2'><a href=" + detail_recipe[x].Image_Recipe + " data-fancybox='gal'><img src=" + detail_recipe[x].Image_Recipe + " alt='Image' class='img-fluid'></a><br><h2><a href='detail_recipe.html?id=" + detail_recipe[x].id + "'>" + detail_recipe[x].Name +
+            result += "<div><div class='testimonial-2'><a href=" + detail_recipe[x].Image_Recipe + " data-fancybox='gal'><img src=" + detail_recipe[x].Image_Recipe + " alt='Image' class='img-fluid lazyload'></a><br><h2><a href='detail_recipe.html?id=" + detail_recipe[x].id + "'>" + detail_recipe[x].Name +
               "</a></h2><h6>" + detail_recipe[x].short_desc + "</h6></div></div>"
           }
           document.getElementById("recipe_day").innerHTML = result;
