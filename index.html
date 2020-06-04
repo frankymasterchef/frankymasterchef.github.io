@@ -129,7 +129,7 @@
           var result = "";
           for (var x in detail_recipe) {
             result += "<div><div class='testimonial-2'><a href=" + detail_recipe[x].Image_Recipe + " data-fancybox='gal'><img src=" + detail_recipe[x].Image_Recipe + " alt='Image' class='img-fluid'></a><br><h2>" + detail_recipe[x].Name +
-              "</h2><h6>" + detail_recipe[x].short_desc + "</h6><div class ='text-right'><a href='detail_recipe.html?id=" + detail_recipe[x].id + "'>Read more</a></div></div></div>"
+              "</h2><h6>" + detail_recipe[x].short_desc + "</h6><div class ='text-right'><a href='detail_recipe.html?id=" + detail_recipe[x].id + "'>" + detail_recipe[x].Name +"</a></div></div></div>"
           }
           document.getElementById("recipe_day").innerHTML = result;
         </script>
