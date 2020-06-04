@@ -1,37 +1,36 @@
-
-<script src="js/data.js"></script>
-<script>
-  var temp_name="";
-  var temp_name_auth="";
-  var temp_ingred="";
-  var temp_step="";
-  var temp_tips="";
-  var temp_image_auth="";
-  var temp_image_rec="";
-  var temp_date="";
-  var temp_bio_author="";
-  
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const ID = urlParams.get('id')
-  console.log(ID);
-  for(var z in detail_recipe){
-    if(detail_recipe[z].id==ID){
-      temp_name=detail_recipe[z].Name;
-      temp_name_auth=detail_recipe[z].Create_by;
-      temp_ingred=detail_recipe[z].Ingredients;
-      temp_step=detail_recipe[z].Step;
-      temp_tips=detail_recipe[z].Tips;
-      temp_image_auth=detail_recipe[z].Image_Author;
-      temp_image_rec=detail_recipe[z].Image_Recipe;
-      temp_date=detail_recipe[z].Date;
-      temp_bio_author=detail_recipe[z].About_Author;
-    }
-  }
-</script>
-
 <!doctype html>
 <html lang="en">
+
+  <script src="js/data.js"></script>
+  <script>
+    var temp_name="";
+    var temp_name_auth="";
+    var temp_ingred="";
+    var temp_step="";
+    var temp_tips="";
+    var temp_image_auth="";
+    var temp_image_rec="";
+    var temp_date="";
+    var temp_bio_author="";
+    
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const ID = urlParams.get('id')
+    console.log(ID);
+    for(var z in detail_recipe){
+      if(detail_recipe[z].id==ID){
+        temp_name=detail_recipe[z].Name;
+        temp_name_auth=detail_recipe[z].Create_by;
+        temp_ingred=detail_recipe[z].Ingredients;
+        temp_step=detail_recipe[z].Step;
+        temp_tips=detail_recipe[z].Tips;
+        temp_image_auth=detail_recipe[z].Image_Author;
+        temp_image_rec=detail_recipe[z].Image_Recipe;
+        temp_date=detail_recipe[z].Date;
+        temp_bio_author=detail_recipe[z].About_Author;
+      }
+    }
+  </script>
 
   <head>
     <title>Chefpad</title>
@@ -171,7 +170,7 @@
             <div class="sidebar-box" id="bio_author">
               <script>
                 var result_4 = "";
-                result_4 = "<img src="+ window.temp_image_auth +"  class='img-fluid mb-4 w-50 rounded-circle'><h3 class='text-black'>About The Author</h3><p>"+ window.temp_bio_author +"</p>"
+                result_4 = "<img src="+ window.temp_image_auth +"  class='img-fluid mb-4 w-50 rounded-circle' alt='Image'><h3 class='text-black'>About The Author</h3><p>"+ window.temp_bio_author +"</p>"
                 document.getElementById("bio_author").innerHTML = result_4;
               </script>
             </div>
