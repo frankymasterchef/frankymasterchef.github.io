@@ -1,6 +1,6 @@
 
-var CACHE_STATIC_NAME = 'static-v6';
-var CACHE_DYNAMIC_NAME = 'dynamic-v6';
+var CACHE_STATIC_NAME = 'static-v8';
+var CACHE_DYNAMIC_NAME = 'dynamic-v8';
 
 self.addEventListener('install', function(event) {
   console.log('[Service Worker] Installing Service Worker ...', event);
@@ -21,12 +21,6 @@ self.addEventListener('install', function(event) {
           '/css/style.css',
           '/fonts/flaticon/font/flaticon.css',
           '/fonts/icomoon/style.css',
-          '/images/Ingredients.jpg',
-          '/images/carousel_3.jpg',
-          '/images/carousel_1.jpg',
-          '/images/newspaper_2.png',
-          '/images/explore.png',
-          '/images/create.png',
           '/images/icon_chef_128.png',
 
           'https://fonts.googleapis.com/css?family=Muli:400,700|Playfair+Display:400,900&display=swap'
