@@ -1,16 +1,12 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <title>Chepad</title>
   <link rel="icon" href="/images/icon_chef_128.png" type="image/png">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <link href="https://fonts.googleapis.com/css?family=Muli:400,700|Playfair+Display:400,900&display=swap" rel="stylesheet" async>
-
   <link rel="stylesheet" href="fonts/icomoon/style.css" async>
-
   <link rel="stylesheet" href="css/bootstrap.min.css" async>
   <link rel="stylesheet" href="css/bootstrap-datepicker.css" async>
   <link rel="stylesheet" href="css/jquery.fancybox.min.css" async>
@@ -19,7 +15,6 @@
   <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" async>
   <link rel="stylesheet" href="css/aos.css" async>
   <link rel="manifest" href="/manifest.json">
-
   <!-- MAIN CSS -->
   <link rel="stylesheet" href="css/style.css" async>
   <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
@@ -27,9 +22,6 @@
   <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
   <script src="js/database.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
-
-
-
   <script>
     $(function() {
       $("#navbar").load("navbar.html");
@@ -41,7 +33,6 @@
       config_file();
       const db = firebase.firestore();
     </script> -->
-
   <script>
     // Your web app's Firebase configuration
     check_signin();
@@ -52,13 +43,10 @@
       }
     })
   </script>
-
-
   <style>
     .pagination {
       justify-content: center;
     }
-
     .fab {
       width: 70px;
       height: 70px;
@@ -74,27 +62,18 @@
       position: fixed;
       right: 50px;
       bottom: 5px;
-
       transition: all 0.1s ease-in-out;
     }
-
     .fab:hover {
       box-shadow: 0 6px 14px 0 #666;
       transform: scale(1.05);
     }
   </style>
-
 </head>
-
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-
   <div class="site-wrap" id="home-section">
-
     <div id="navbar">
     </div>
-
-
     <div class="ftco-blocks-cover-1">
       <div class="site-section-cover bg-image overlay" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/webchefpad-1e9bd.appspot.com/o/static%2Fcreate_bg.webp?alt=media&token=f120ab3e-5068-4834-b113-6f9731f08642')">
         <div class="container">
@@ -112,8 +91,6 @@
           </div>
         </div>
       </div>
-
-
       <div class="site-section bg-light">
         <div class="container">
           <div class="row">
@@ -129,11 +106,9 @@
           </div>
           <br>
           <div class="recipes row" id="listmyrecipe">
-
           </div>
         </div>
       </div>
-
       <footer class="site-footer bg-image overlay" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/webchefpad-1e9bd.appspot.com/o/static%2FIngredients.webp?alt=media&token=231e3a02-c93e-4b9c-b354-adbe116e4b38')">
         <div class="container">
           <div class="row">
@@ -194,7 +169,6 @@
             }
           }))
         })
-
       });
     });
   </script>
