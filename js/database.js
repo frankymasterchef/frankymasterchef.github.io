@@ -1,4 +1,3 @@
-
 function config_file() {
   var firebaseConfig = {
     apiKey: "AIzaSyAqpcoHIGs83TRnEcaqj951G553KjgegMk",
@@ -12,7 +11,6 @@ function config_file() {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.auth.Auth.Persistence.LOCAL;
-  
 }
 
 function logout() {
@@ -21,13 +19,13 @@ function logout() {
     // firebase.firestore().clearPersistence()
     // .then(function() {
     //   alert("peristence clear");
-      document.getElementById("logout").innerHTML = "";
-      window.location.href = "/account.html";
+    document.getElementById("logout").innerHTML = "";
+    window.location.href = "/account.html";
     //  })
     //  .catch(error => {
     //   console.error('Could not enable persistence:', error.code);
     // })
-    
+
   }).catch(function(error) {
     alert("failed logout");
   })
@@ -38,8 +36,6 @@ function check_signin() {
     if (user) {
       document.getElementById("logout").innerHTML = '<a href="" onclick="logout()" class="nav-link">Logout</a>'
       console.log(user);
-    } else {
-    }
+    } else {}
   })
 }
-
