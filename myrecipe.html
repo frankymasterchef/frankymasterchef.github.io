@@ -180,6 +180,8 @@
     $(document).ready(function() {
       config_file();
       const db = firebase.firestore();
+      $('<script/>',{type:'text/javascript', src:'js/db.js'}).appendTo('head');
+      $('<script/>',{type:'text/javascript', src:'js/ui.js'}).appendTo('head');
       $("#search_myrecipe").on("keyup", function() {
         var value = $(this).val().toLowerCase();
         document.getElementById("listmyrecipe").innerHTML = "";
@@ -197,7 +199,7 @@
     });
   </script>
 
-  <script src="js/db.js"></script>
-  <script src="js/ui.js"></script>
+  <!-- <script src="js/db.js"></script>
+  <script src="js/ui.js"></script> -->
 </body>
 </html>
