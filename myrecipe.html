@@ -44,7 +44,7 @@
 
   <script>
     // Your web app's Firebase configuration
-    check_signin();
+    
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {} else {
         alert("Anda belum login, login terlebih dahulu");
@@ -180,6 +180,7 @@
     $(document).ready(function() {
       config_file();
       const db = firebase.firestore();
+      check_signin();
       $('<script/>',{type:'text/javascript', src:'js/db.js'}).appendTo('head');
       $('<script/>',{type:'text/javascript', src:'js/ui.js'}).appendTo('head');
       $("#search_myrecipe").on("keyup", function() {
