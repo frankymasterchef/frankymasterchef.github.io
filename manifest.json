@@ -12,6 +12,11 @@
       "src": "/images/icon_chef_256.png",
       "type": "image/png",
       "sizes": "256x256"
+    },
+    {
+      "src": "/images/icon_chef_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "start_url": "/index.html",
