@@ -22,9 +22,9 @@
     
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/style.css" async>
-    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script> -->
-    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
     <script src="js/database.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     
@@ -37,10 +37,10 @@
       })
     </script>
     
-     <script>
+     <!-- <script>
       config_file();
       const db = firebase.firestore();
-    </script>
+    </script> -->
 
     <script>
       // Your web app's Firebase configuration
@@ -312,6 +312,11 @@
     
     <script>
       $(document).ready(function(){
+        
+        config_file();
+        const db = firebase.firestore();
+   
+        
         $("#search_myrecipe").on("keyup", function() {
           var value = $(this).val().toLowerCase();
           document.getElementById("listmyrecipe").innerHTML = "";
