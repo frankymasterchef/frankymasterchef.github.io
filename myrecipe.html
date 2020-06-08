@@ -179,7 +179,6 @@
   <script>
     $(document).ready(function() {
       config_file();
-      const db = firebase.firestore();
       check_signin();
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
