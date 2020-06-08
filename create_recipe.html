@@ -244,22 +244,22 @@
   
   <!-- TODO: Add SDKs for Firebase products that you want to use
              https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script>
-    $(document).ready(function() {
-      config_file();
-      check_signin();
-      firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-        } else {
-          alert("Anda belum login, login terlebih dahulu");
-          window.location.href = "/account.html";
-        }
-      })
-      $('<script/>',{type:'text/javascript', src:'js/db.js'}).appendTo('head');
-      $('<script/>',{type:'text/javascript', src:'js/ui.js'}).appendTo('head');
+<script>
+  $(document).ready(function() {
+    config_file();
+    check_signin();
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+      } else {
+        alert("Anda belum login, login terlebih dahulu");
+        window.location.href = "/account.html";
+      }
+    })
+    $('<script/>',{type:'text/javascript', src:'js/db.js'}).appendTo('head');
+    $('<script/>',{type:'text/javascript', src:'js/ui.js'}).appendTo('head');
 
-    });
-  </script>
+  });
+</script>
   <script>
     function readURL(input) {
       if (input.files && input.files[0]) {
@@ -295,7 +295,6 @@
 
   </script>
 
-<script src="js/db.js"></script>
 </body>
 
 </html>
