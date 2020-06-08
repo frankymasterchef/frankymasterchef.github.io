@@ -1,34 +1,6 @@
 <!doctype html>
 <html lang="en">
-<script src="js/data.js"></script>
-<script>
-  var temp_name = "";
-  var temp_name_auth = "";
-  var temp_ingred = "";
-  var temp_step = "";
-  var temp_tips = "";
-  var temp_image_auth = "";
-  var temp_image_rec = "";
-  var temp_date = "";
-  var temp_bio_author = "";
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const ID = urlParams.get('id')
-  console.log(ID);
-  for (var z in detail_recipe) {
-    if (detail_recipe[z].id == ID) {
-      temp_name = detail_recipe[z].Name;
-      temp_name_auth = detail_recipe[z].Create_by;
-      temp_ingred = detail_recipe[z].Ingredients;
-      temp_step = detail_recipe[z].Step;
-      temp_tips = detail_recipe[z].Tips;
-      temp_image_auth = detail_recipe[z].Image_Author;
-      temp_image_rec = detail_recipe[z].Image_Recipe;
-      temp_date = detail_recipe[z].Date;
-      temp_bio_author = detail_recipe[z].About_Author;
-    }
-  }
-</script>
+
 
 <head>
   <title>Chefpad</title>
@@ -47,16 +19,49 @@
   <link rel="manifest" href="/manifest.json">
   <!-- MAIN CSS -->
   <link rel="stylesheet" href="css/style.css" async>
-  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
   <script src="js/database.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/data.js"></script>
+  <script>
+    var temp_name = "";
+    var temp_name_auth = "";
+    var temp_ingred = "";
+    var temp_step = "";
+    var temp_tips = "";
+    var temp_image_auth = "";
+    var temp_image_rec = "";
+    var temp_date = "";
+    var temp_bio_author = "";
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const ID = urlParams.get('id')
+    console.log(ID);
+    for (var z in detail_recipe) {
+      if (detail_recipe[z].id == ID) {
+        temp_name = detail_recipe[z].Name;
+        temp_name_auth = detail_recipe[z].Create_by;
+        temp_ingred = detail_recipe[z].Ingredients;
+        temp_step = detail_recipe[z].Step;
+        temp_tips = detail_recipe[z].Tips;
+        temp_image_auth = detail_recipe[z].Image_Author;
+        temp_image_rec = detail_recipe[z].Image_Recipe;
+        temp_date = detail_recipe[z].Date;
+        temp_bio_author = detail_recipe[z].About_Author;
+      }
+    }
+  </script>
   <script>
     $(function() {
       $("#navbar").load("navbar.html");
     })
   </script>
   <script>
-    config_file();
+    $(document).ready(function() {
+      config_file();
+    })
   </script>
 </head>
 

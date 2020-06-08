@@ -28,7 +28,7 @@
       $("#navbar").load("navbar.html");
     });
   </script>
-  <script>
+  <!-- <script>
     config_file();
     const db = firebase.firestore();
   </script>
@@ -41,7 +41,7 @@
         window.location.href = "/account.html";
       }
     })
-  </script>
+  </script> -->
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -90,8 +90,27 @@
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/db.js"></script>
-  <script src="js/ui.js"></script>
+  <!-- <script src="js/db.js"></script>
+  <script src="js/ui.js"></script> -->
+
+
+  <script>
+    $(document).ready(function() {
+      config_file();
+      check_signin();
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+        } else {
+          alert("Anda belum login, login terlebih dahulu");
+          window.location.href = "/account.html";
+        }
+      })
+      $('<script/>',{type:'text/javascript', src:'js/db.js'}).appendTo('head');
+      $('<script/>',{type:'text/javascript', src:'js/ui.js'}).appendTo('head');
+
+    });
+  </script>
+
 </body>
 
 </html>

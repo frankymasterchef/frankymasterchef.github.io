@@ -1,3 +1,4 @@
+const db = firebase.firestore();
 var selectedFile;
 // $( document ).ready(function() {
 // 	document.getElementById("upload").addEventListener('change', handleFileSelect, false);

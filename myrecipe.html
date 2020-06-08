@@ -20,7 +20,7 @@
   <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
   <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
   <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
-  <script src="js/database.js"></script>
+  <script defer src="js/database.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script>
     $(function() {
@@ -33,16 +33,8 @@
       config_file();
       const db = firebase.firestore();
     </script> -->
-  <script>
-    // Your web app's Firebase configuration
-    check_signin();
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {} else {
-        alert("Anda belum login, login terlebih dahulu");
-        window.location.href = "/account.html";
-      }
-    })
-  </script>
+
+
   <style>
     .pagination {
       justify-content: center;
@@ -83,7 +75,6 @@
               <p>Make your own recipe and make it easy to remember.</p>
               <p><a href="create_recipe.html" class="btn btn-primary">Create Your Recipe</a></p>
               <!--   <input type="text" class="form-control form-rounded" placeholder="Text input">
-
               <br>
               <p><a href="#" class="btn btn-primary">Learn More</a></p>
               </div> -->
@@ -151,12 +142,20 @@
   <script src="js/aos.js"></script>
   <script src="js/main.js"></script>
   <!-- <script src="js/db.js"></script> -->
-  <script src="js/db.js"></script>
-  <script src="js/ui.js"></script>
+
   <script>
     $(document).ready(function() {
       config_file();
-      const db = firebase.firestore();
+      check_signin();
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+        } else {
+          alert("Anda belum login, login terlebih dahulu");
+          window.location.href = "/account.html";
+        }
+      })
+      $('<script/>',{type:'text/javascript', src:'js/db.js'}).appendTo('head');
+      $('<script/>',{type:'text/javascript', src:'js/ui.js'}).appendTo('head');
       $("#search_myrecipe").on("keyup", function() {
         var value = $(this).val().toLowerCase();
         document.getElementById("listmyrecipe").innerHTML = "";
@@ -172,5 +171,8 @@
       });
     });
   </script>
+
+  <!-- <script src="js/db.js"></script>
+  <script src="js/ui.js"></script> -->
 </body>
 </html>
