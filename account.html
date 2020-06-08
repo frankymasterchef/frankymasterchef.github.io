@@ -18,6 +18,9 @@
   <link rel="manifest" href="/manifest.json">
   <!-- MAIN CSS -->
   <link rel="stylesheet" href="css/style.css" async>
+  <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script>
     $(function() {
@@ -149,14 +152,14 @@
   <script src="js/main.js"></script>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script> -->
   <script src="js/database.js"></script>
   <!-- TODO: Add SDKs for Firebase products that you want to use
        https://firebase.google.com/docs/web/setup#available-libraries -->
   <script>
     // Your web app's Firebase configuration
-    config_file();
     $(document).ready(function() {
+      config_file();
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           alert("Anda telah login");
