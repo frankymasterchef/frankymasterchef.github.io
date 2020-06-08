@@ -16,13 +16,9 @@ self.addEventListener('install', function(event) {
           '/js/bootstrap.min.js',
           '/js/jquery-3.3.1.min.js',
           '/css/bootstrap.min.css',
-          '/css/owl.carousel.min.css',
-          '/css/owl.theme.default.min.css',
           '/css/style.css',
-          '/fonts/flaticon/font/flaticon.css',
-          '/fonts/icomoon/style.css',
           '/images/icon_chef_128.png',
-
+          'https://www.gstatic.com/firebasejs/7.14.4/firebase.js',
           'https://fonts.googleapis.com/css?family=Muli:400,700|Playfair+Display:400,900&display=swap'
         ]);
       })
