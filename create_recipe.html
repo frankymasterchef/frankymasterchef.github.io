@@ -22,9 +22,10 @@
 
   <!-- MAIN CSS -->
   <link rel="stylesheet" href="css/style.css" async>
-  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
-  <script src="js/database.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-firestore.js"></script>
+  <script defer src="js/database.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script>
     $(function(){
@@ -33,10 +34,10 @@
     })
   </script>
 
-  <script>
+  <!-- <script>
     config_file();
     const db = firebase.firestore();
-  </script>
+  </script> -->
 
   <style>
     #upload {
@@ -244,15 +245,20 @@
   <!-- TODO: Add SDKs for Firebase products that you want to use
              https://firebase.google.com/docs/web/setup#available-libraries -->
   <script>
-    // Your web app's Firebase configuration
-    check_signin();
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-      } else {
-        alert("Anda belum login, login terlebih dahulu");
-        window.location.href = "/account.html";
-      }
-    })
+    $(document).ready(function() {
+      config_file();
+      check_signin();
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+        } else {
+          alert("Anda belum login, login terlebih dahulu");
+          window.location.href = "/account.html";
+        }
+      })
+      $('<script/>',{type:'text/javascript', src:'js/db.js'}).appendTo('head');
+      $('<script/>',{type:'text/javascript', src:'js/ui.js'}).appendTo('head');
+
+    });
   </script>
   <script>
     function readURL(input) {
