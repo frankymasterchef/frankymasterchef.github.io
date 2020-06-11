@@ -1,4 +1,3 @@
-
 var CACHE_STATIC_NAME = 'static-v9';
 var CACHE_DYNAMIC_NAME = 'dynamic-v9';
 
@@ -44,7 +43,7 @@ self.addEventListener('activate', function(event) {
 
 
 self.addEventListener('fetch', function(event) {
-  if(event.request.url.indexOf('firestore.googleapis.com') === -1){
+ 
       event.respondWith(
         caches.match(event.request)
           .then(function(response) {
@@ -64,5 +63,5 @@ self.addEventListener('fetch', function(event) {
             }
           })
       );
-    }
+    
 });
