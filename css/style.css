@@ -328,6 +328,18 @@ h1, h2, h3, h4, h5,
 .text-black-opacity-05 {
   color: rgba(0, 0, 0, 0.5); }
 
+
+  .bg_offline {
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
 .hover-bg-enlarge {
   overflow: hidden;
   position: relative; }
