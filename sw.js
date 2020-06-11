@@ -20,13 +20,6 @@ self.addEventListener('install', function(event) {
           '/css/style.css',
           '/images/icon_chef_128.png',
           '/images/Ingredients.webp',
-          'https://firebasestorage.googleapis.com/v0/b/webchefpad-1e9bd.appspot.com/o/static%2FIngredients.webp?alt=media&token=231e3a02-c93e-4b9c-b354-adbe116e4b38',
-          'https://firebasestorage.googleapis.com/v0/b/webchefpad-1e9bd.appspot.com/o/static%2Fcarousel_3.webp?alt=media&token=f7989ac9-709a-4761-ab58-301b3cd018c6',
-          'https://firebasestorage.googleapis.com/v0/b/webchefpad-1e9bd.appspot.com/o/static%2Fcarousel_1.webp?alt=media&token=9c8da68a-5729-4abc-8439-ce2a127dd339',
-          'https://firebasestorage.googleapis.com/v0/b/webchefpad-1e9bd.appspot.com/o/static%2Fcarousel_3.webp?alt=media&token=f7989ac9-709a-4761-ab58-301b3cd018c6',
-          'https://firebasestorage.googleapis.com/v0/b/webchefpad-1e9bd.appspot.com/o/static%2Fabout_cook_1.webp?alt=media&token=6e26d5ef-77fa-490e-aff4-3ce1bcb3d5f9',
-          'https://firebasestorage.googleapis.com/v0/b/webchefpad-1e9bd.appspot.com/o/static%2Fabout_cook_2.webp?alt=media&token=5d1e787c-0354-47c5-af5a-62ff7b5213eb',
-          'https://fonts.googleapis.com/css?family=Muli:400,700|Playfair+Display:400,900&display=swap'
         ]);
       })
   )
