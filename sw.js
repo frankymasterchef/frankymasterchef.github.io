@@ -19,7 +19,7 @@ self.addEventListener('install', function(event) {
           '/css/bootstrap.min.css',
           '/css/style.css',
           '/images/icon_chef_128.png',
-
+          '/images/Ingredients.webp',
           'https://fonts.googleapis.com/css?family=Muli:400,700|Playfair+Display:400,900&display=swap'
         ]);
       })
