@@ -12,14 +12,14 @@ self.addEventListener('install', function(event) {
         cache.addAll([
           '/',
           '/index.html',
-          '/offline.html',
+         
           '/js/app.js',
           '/js/bootstrap.min.js',
           '/js/jquery-3.3.1.min.js',
           '/css/bootstrap.min.css',
           '/css/style.css',
           '/images/icon_chef_128.png',
-          '/images/Ingredients.webp',
+          
           'https://fonts.googleapis.com/css?family=Muli:400,700|Playfair+Display:400,900&display=swap'
         ]);
       })
@@ -60,10 +60,10 @@ self.addEventListener('fetch', function(event) {
                     })
                 })
                 .catch(function(err) {
-                  return caches.open(CACHE_STATIC_NAME)
-                  .then(function(cache) {
-                    return cache.match('/offline.html');
-                  });
+                  // return caches.open(CACHE_STATIC_NAME)
+                  // .then(function(cache) {
+                  //   return cache.match('/offline.html');
+                  // });
                 });
             }
           })
