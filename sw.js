@@ -12,6 +12,7 @@ self.addEventListener('install', function(event) {
         cache.addAll([
           '/',
           '/index.html',
+          '/offline.html',
           '/js/app.js',
           '/js/bootstrap.min.js',
           '/js/jquery-3.3.1.min.js',
