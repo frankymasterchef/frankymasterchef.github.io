@@ -131,12 +131,12 @@
       <!-- <script>
         document.getElementById("lol").innerHTML = choose;
      </script> -->
-      <div class="nonloop-block-13 owl-carousel d-flex" id="recipe_day">
+      <div class="nonloop-block-13 owl-carousel d-flex lazyloaded" id="recipe_day">
         <script>
           var result = "";
           for (var x in detail_recipe) {
             result += "<div><div class='testimonial-2'><a href=" + detail_recipe[x].Image_Recipe + " data-fancybox='gal'><img src=" + detail_recipe[x].Image_Recipe +
-              " alt='Image' class='img-fluid lazyload'></a><br><h2><a href='detail_recipe.html?id=" + detail_recipe[x].id + "'>" + detail_recipe[x].Name +
+              " alt='Image' class='img-fluid'></a><br><h2><a href='detail_recipe.html?id=" + detail_recipe[x].id + "'>" + detail_recipe[x].Name +
               "</a></h2><h6>" + detail_recipe[x].short_desc + "</h6></div></div>"
           }
           document.getElementById("recipe_day").innerHTML = result;
