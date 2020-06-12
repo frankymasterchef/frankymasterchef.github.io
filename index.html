@@ -22,7 +22,7 @@
   <!-- MAIN CSS -->
   <link rel="stylesheet" href="css/style.css" async>
   <meta name="msapplication-TileImage" content="/images/icon_chef_128.png">
-  <script src="js/data.js"></script>
+  <script src="js/data.js" async></script>
   <script src="js/lazysizes.min.js" async></script>
   <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
   <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
@@ -132,7 +132,7 @@
         document.getElementById("lol").innerHTML = choose;
      </script> -->
       <div class="nonloop-block-13 owl-carousel d-flex" id="recipe_day">
-        <script>
+        <!-- <script>
           var result = "";
           for (var x in detail_recipe) {
             result += "<div><div class='testimonial-2'><a href=" + detail_recipe[x].Image_Recipe + " data-fancybox='gal'><img src=" + detail_recipe[x].Image_Recipe +
@@ -140,7 +140,7 @@
               "</a></h2><h6>" + detail_recipe[x].short_desc + "</h6></div></div>"
           }
           document.getElementById("recipe_day").innerHTML = result;
-        </script>
+        </script> -->
       </div>
       <div class="text-center mt-5">
         <a href="#" class="btn btn-primary custom-prev">Prev</a>
@@ -209,6 +209,18 @@
     <!-- <script>
     check_signin();
   </script> -->
+
+  <script>
+    $(document).ready(function() {
+     var result = "";
+         for (var x in detail_recipe) {
+           result += "<div><div class='testimonial-2'><a href=" + detail_recipe[x].Image_Recipe + " data-fancybox='gal'><img src=" + detail_recipe[x].Image_Recipe +
+             " alt='Image' class='img-fluid lazyload'></a><br><h2><a href='detail_recipe.html?id=" + detail_recipe[x].id + "'>" + detail_recipe[x].Name +
+             "</a></h2><h6>" + detail_recipe[x].short_desc + "</h6></div></div>"
+         }
+     document.getElementById("recipe_day").innerHTML = result;
+    })
+ </script>
 </body>
 
 </html>
