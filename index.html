@@ -22,7 +22,7 @@
   <!-- MAIN CSS -->
   <link rel="stylesheet" href="css/style.css" async>
   <meta name="msapplication-TileImage" content="/images/icon_chef_128.png">
-  <script src="js/data.js" async></script>
+  <script src="js/data.js"></script>
   <script src="js/lazysizes.min.js" async></script>
   <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
   <script defer src="https://www.gstatic.com/firebasejs/7.15.0/firebase-auth.js"></script>
@@ -34,11 +34,7 @@
       $("#navbar").load("navbar.html");
     })
   </script>
-  <script>
-    $(document).ready(function() {
-      config_file();
-    })
-  </script>
+ 
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -212,6 +208,8 @@
 
   <script>
     $(document).ready(function() {
+
+     config_file();
      var result = "";
          for (var x in detail_recipe) {
            result += "<div><div class='testimonial-2'><a href=" + detail_recipe[x].Image_Recipe + " data-fancybox='gal'><img src=" + detail_recipe[x].Image_Recipe +
