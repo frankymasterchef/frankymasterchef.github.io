@@ -34,7 +34,7 @@ function logout() {
 function check_signin() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      document.getElementById("logout").innerHTML = '<a href="" onclick="logout()" class="nav-link">Logout</a>'
+      document.getElementByClassName("logout").innerHTML = '<a href="" onclick="logout()" class="nav-link">Logout</a>'
       console.log(user);
     } else {}
   })
